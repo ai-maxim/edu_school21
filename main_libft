@@ -1,0 +1,161 @@
+#include "libft.h"
+
+int main()
+{
+	/* _____FT_MEMSET_____ */
+	char c[] = "1312";
+	printf("%s\n", (char*)ft_memset(c, 67, 5));
+	char c1[] = "1312";
+	printf("%s", (char*)memset(c1, 66, 5));
+}
+
+	/* _____FT_STRLEN_____ */
+
+//	char *i;
+//	i = "123456789012123";
+
+//	printf("%s\n", ft_strlen(i));
+
+	/* _____FT_MEMCPY_____ */
+
+    
+
+	
+
+	/*   _____FT_MEMCCPY_____  */
+
+//	void *dest;
+//	void *src = ";dslkjbn!";
+//	int c = 9;
+//	size_t len = 7;
+
+//	printf("%d\n", ft_memccpy(dest, src, c, len));
+//	printf("%d\n", memccpy(dest, src, c, len));
+
+	/* _____FT_MEMCHR_____ */
+
+int main()
+{
+    char str[] = "wetqwet";
+    char q = 't';
+
+    printf("%s\n", ft_memchr(str, q, 3));
+    printf("%s\n", memchr(str, q, 3));
+    return (0);
+}
+	/* _____FT_MEMCMP_____ */
+int main()
+{
+    char s1[] = "qwertqwe";
+    char s2[] = "qwert";
+    
+    printf("%d\n", ft_memcmp(s1, s2, 4));
+    printf("%d\n", memcmp(s1, s2, 4));
+    return (0);
+}
+	/* _____FT_ISALPHA_____ */
+#include <ctype.h>
+
+int main()
+{
+    char a = 'a';
+
+    printf("%d\n", ft_isalpha(a));
+    printf("%d\n", isalpha(a));
+    return (0);
+}
+
+	/* _____FT_ISDIGIT_&_FT_ISALNUM____ */
+int main()
+{
+    char a = 'y';
+
+    printf("%d\n", ft_isdigit(a));
+    printf("%d\n", isdigit(a));
+    return (0);
+}
+	/* _____FT_ISPRINT_____ */
+int main()
+{
+    char a = ' ';
+    printf("%d\n", a);
+
+    printf("%d\n", ft_isprint(a));
+    printf("%d\n", isprint(a));
+    return (0);
+}
+	/* _____FT_TOUPPER__&__FT_TOLOWER____ */
+int main()
+{
+    char a = 'a';
+
+    printf("%c\n", ft_toupper(a));
+    printf("%c\n", toupper(a));
+}
+
+	/* _____FT_ISPRINT_____ */
+int main()
+{
+    char a[] = "1234567";
+    int z = '5';
+
+    printf("%s\n", ft_strchr(a, z));
+    printf("%s\n", strchr(a, z));
+    return (0);
+}
+
+	/* _____FT_STRCHR_____ */
+int main()
+{
+    char *s;
+    char *s2;
+    int *a;
+    
+    a = (int *)malloc(sizeof(int) * 1);
+    *a = 3;
+    s = "123";
+    s2 = s;
+    printf("%p\n", a);
+    printf("%p\n%p\n", s, s2);
+    return 0;
+}
+	/* _____FT_STRNCMP_____ */
+int main()
+{
+	char *s1 = "ad";
+	char *s2 = "asd";
+		
+	printf("%d\n", ft_strncmp(s1, s2, 2));
+	printf("%d", strncmp(s1, s2, 2));
+	return (0);
+}
+	/* _____FT_STRLCMP_____ */
+int main()
+{
+    char a[21] = "qwert";
+    char *z = "qwer";
+
+    printf("%zu\n", ft_strlcpy(a, z, 2));
+    printf("%lu\n", strlcpy(a, z, 2));
+    return (0);
+}
+
+int main()
+{
+	char a[] = "1234";
+	char s[] = "_123e";
+
+	printf("%d\n", ft_atoi(a));
+	printf("%d\n", atoi(a));
+	return (0);
+}
+
+int main()
+{
+    char a[21] = "qwert";
+    char *z = "qwer";
+
+    printf("%zu\n", ft_strlcpy(a, z, 2));
+    printf("%lu\n", strlcpy(a, z, 2));
+    return (0);
+}
