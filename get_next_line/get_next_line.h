@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 13:28:41 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/04 22:01:34 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/19 09:16:20 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/19 11:51:57 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef
+# define
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t len)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
+#include <fcntl.h>
 
-	d = dest;
-	s = src;
-	i = 0;
-	while (i < len)
-	{
-		d[i] = s[i];
-		if (s[i] == (unsigned char)c)
-			return (&d[i + 1]);
-		i++;
-	}
-	return (NULL);
-}
+
+int	get_next_line(int fd, char **line);
+
+
+#endif

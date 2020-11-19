@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehillman <ehillman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 17:33:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/04 20:14:37 by ehillman         ###   ########.fr       */
+/*   Updated: 2020/11/16 12:59:29 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int		check_nonprintable(char str)
 
 int		ft_atoi(char *str)
 {
-	int	nbr;
-	int	sign;
-	int	i;
+	long	nbr;
+	long	sign;
+	long	i;
 
 	nbr = 0;
 	sign = 1;

@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 22:20:00 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/04 22:26:06 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/10 21:40:50 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/13 15:46:13 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int		i;
-	char	*tmp;
-
-	tmp = (char *)s;
-	i = 0;
-	while (tmp[i] != c && tmp[i] != '\0')
-	{
-		i++;
-		if (tmp[i] == c)
-			return (&tmp[i]);
-	}
-	return (NULL);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

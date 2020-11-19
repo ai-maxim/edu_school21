@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 22:19:33 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/04 21:38:14 by qdong            ###   ########.fr       */
+/*   Created: 2020/10/31 13:28:41 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/05 18:54:15 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t len)
 {
-	const char	*head;
-	const char	*tmp;
-	size_t		i;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	if (!*needle)
-		return ((char *)haystack);
-	tmp = needle;
-	while (*haystack && len)
+	d = dest;
+	s = src;
+	i = 0;
+	while (i < len)
 	{
-		head = haystack;
-		i = 0;
-		while ((*haystack == *needle) && *needle && i < len)
-		{
-			++haystack;
-			++needle;
-			++i;
-		}
-		if (!*needle)
-			return ((char *)head);
-		needle = tmp;
-		haystack = head + 1;
-		--len;
+		d[i] = s[i];
+		if (s[i] == (unsigned char)c)
+			return (&d[i + 1]);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
