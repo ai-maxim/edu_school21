@@ -2,7 +2,11 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_atoi.c ft_itoa.c
+SRCS =	ft_printf.c
+				./libft/ft_itoa.c ./libft/ft_strlen.c \
+				./libft/ft_strdup.c ./libft/ft_substr.c \
+				./libft/ft_calloc.c ./libft/ft_bzero.c \
+				./libft/ft_putchar.c ./libft/ft_
 
 CFLAGS = -Wall -Werror -Wextra -c
 
@@ -28,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean bonus re					
+.PHONY: all clean fclean bonus re
