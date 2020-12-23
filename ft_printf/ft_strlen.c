@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 09:16:20 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/19 11:51:57 by qdong            ###   ########.fr       */
+/*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/04 22:00:01 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-#define BUFF_SIZE 32
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-int   get_next_line(int fd, char **line);
-int   ft_strlen(char *list);
-//char  ft_strdup(char *last_line);
-//char  ft_strjoin(char *line, char *list);
-char  ft_strchr(char *line, int c);
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
