@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/28 12:18:25 by qdong             #+#    #+#             */
+/*   Updated: 2020/12/28 14:43:29 by qdong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void print_str(char *str, t_struct *f)
+void print_str(char *str, t_struct *f)
 {
     int strlen;
 
@@ -18,7 +30,7 @@ static void print_str(char *str, t_struct *f)
     }
 }
 
-static void ft_print_str_right(char *str, t_struct *f)
+void ft_print_str_right(char *str, t_struct *f)
 {
     int strlen;
 

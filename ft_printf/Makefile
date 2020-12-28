@@ -1,8 +1,19 @@
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/28 14:56:09 by qdong             #+#    #+#              #
+#    Updated: 2020/12/28 15:19:49 by qdong            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS =	ft_printf.c 
+SRCS =	ft_printf.c ft_printing.c parsers.c print_str.c init_flags.c \
+		ft_strlen.c print_char.c
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -16,13 +27,10 @@ HEADER = ft_printf.h
 			${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-					make -C ./libft/
-					cp libft/libft.a
-					mv libft.a ${NAME}
 					ar rc ${NAME} ${OBJS}
 
 %.o:%.c ${HEADER}
-				gcc ${CFLAGS} $< -o $@
+				gcc ${CFLAGS} -c $< -o $@
 
 all: ${NAME}
 
