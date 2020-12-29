@@ -19,7 +19,8 @@ int						ft_printf(const char *format, ...)
 	int					out;
 	t_struct		*flags;
 
-	flags = (t_struct *)malloc(sizeof(t_struct));
+	if(!(flags = (t_struct *)malloc(sizeof(t_struct))))
+		return(NULL);
 	va_start(ap, format);
 	if ((out = pars_str((char *)format, flags, &ap)) == -1)
 		return (-1);

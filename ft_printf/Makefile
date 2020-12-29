@@ -12,8 +12,14 @@
 
 NAME = libftprintf.a
 
-SRCS =	ft_printf.c ft_printing.c parsers.c print_str.c init_flags.c \
-		ft_strlen.c print_char.c
+SRCS =	ft_printf.c	\ 
+		ft_printing.c	\ 
+		ft_pars_modifiers.c \
+		parsers.c 		\
+		init_flags.c 	\
+		ft_strlen.c		\
+		print_str.c		\ 
+		print_char.c
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -27,6 +33,9 @@ HEADER = ft_printf.h
 			${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
+					make -C ./libft/
+					cp libft/libft.a ./
+					mv libft.a ${NAME}
 					ar rc ${NAME} ${OBJS}
 
 %.o:%.c ${HEADER}

@@ -20,8 +20,8 @@ void print_str(char *str, t_struct *f)
     if (!str)
         str = NULL;
     strlen = ft_strlen(str);
-    if (f->precision_specified && strlen > 0 && strlen > f->precision)
-        strlen = f->precision;
+    if (f->accuracy_specified && strlen > 0 && strlen > f->accuracy)
+        strlen = f->accuracy;
     f->len += write(f->fd, str, strlen);
     while (f->width > strlen)
     {
@@ -37,8 +37,8 @@ void ft_print_str_right(char *str, t_struct *f)
     if (!str)
         str = NULL;
     strlen = ft_strlen(str);
-    if (f->precision_specified && strlen > 0 && strlen > f->precision)
-        strlen = f->precision;
+    if (f->accuracy_specified && strlen > 0 && strlen > f->accuracy)
+        strlen = f->accuracy;
     while (f->width > *str)
     {
         if (f->zero)

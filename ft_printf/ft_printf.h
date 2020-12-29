@@ -33,8 +33,7 @@ typedef struct s_struct
 	int   accuracy;
 
 	int   width;
-	int   precision_specified;
-	int   precision;
+	int   accuracy_specified;
 	int   length;
 
 }       t_struct;
