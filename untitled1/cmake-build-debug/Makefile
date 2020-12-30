@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /opt/clion-2020.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /opt/clion-2020.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/qdong/CLionProjects/untitled1
+CMAKE_SOURCE_DIR = /home/m/21/libft/untitled1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/qdong/CLionProjects/untitled1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/m/21/libft/untitled1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/qdong/CLionProjects/untitled1/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/clion-2020.2/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/opt/clion-2020.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles /Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles /home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -278,6 +278,60 @@ ft_printing.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_printing.c.s
 .PHONY : ft_printing.c.s
 
+ft_putchar.o: ft_putchar.c.o
+
+.PHONY : ft_putchar.o
+
+# target to build an object file
+ft_putchar.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putchar.c.o
+.PHONY : ft_putchar.c.o
+
+ft_putchar.i: ft_putchar.c.i
+
+.PHONY : ft_putchar.i
+
+# target to preprocess a source file
+ft_putchar.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putchar.c.i
+.PHONY : ft_putchar.c.i
+
+ft_putchar.s: ft_putchar.c.s
+
+.PHONY : ft_putchar.s
+
+# target to generate assembly for a file
+ft_putchar.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putchar.c.s
+.PHONY : ft_putchar.c.s
+
+ft_putstr_prec.o: ft_putstr_prec.c.o
+
+.PHONY : ft_putstr_prec.o
+
+# target to build an object file
+ft_putstr_prec.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putstr_prec.c.o
+.PHONY : ft_putstr_prec.c.o
+
+ft_putstr_prec.i: ft_putstr_prec.c.i
+
+.PHONY : ft_putstr_prec.i
+
+# target to preprocess a source file
+ft_putstr_prec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putstr_prec.c.i
+.PHONY : ft_putstr_prec.c.i
+
+ft_putstr_prec.s: ft_putstr_prec.c.s
+
+.PHONY : ft_putstr_prec.s
+
+# target to generate assembly for a file
+ft_putstr_prec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_putstr_prec.c.s
+.PHONY : ft_putstr_prec.c.s
+
 ft_strchr.o: ft_strchr.c.o
 
 .PHONY : ft_strchr.o
@@ -331,6 +385,33 @@ ft_strlen.s: ft_strlen.c.s
 ft_strlen.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_strlen.c.s
 .PHONY : ft_strlen.c.s
+
+ft_treat_width.o: ft_treat_width.c.o
+
+.PHONY : ft_treat_width.o
+
+# target to build an object file
+ft_treat_width.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_treat_width.c.o
+.PHONY : ft_treat_width.c.o
+
+ft_treat_width.i: ft_treat_width.c.i
+
+.PHONY : ft_treat_width.i
+
+# target to preprocess a source file
+ft_treat_width.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_treat_width.c.i
+.PHONY : ft_treat_width.c.i
+
+ft_treat_width.s: ft_treat_width.c.s
+
+.PHONY : ft_treat_width.s
+
+# target to generate assembly for a file
+ft_treat_width.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/ft_treat_width.c.s
+.PHONY : ft_treat_width.c.s
 
 init_flags.o: init_flags.c.o
 
@@ -491,12 +572,21 @@ help:
 	@echo "... ft_printing.o"
 	@echo "... ft_printing.i"
 	@echo "... ft_printing.s"
+	@echo "... ft_putchar.o"
+	@echo "... ft_putchar.i"
+	@echo "... ft_putchar.s"
+	@echo "... ft_putstr_prec.o"
+	@echo "... ft_putstr_prec.i"
+	@echo "... ft_putstr_prec.s"
 	@echo "... ft_strchr.o"
 	@echo "... ft_strchr.i"
 	@echo "... ft_strchr.s"
 	@echo "... ft_strlen.o"
 	@echo "... ft_strlen.i"
 	@echo "... ft_strlen.s"
+	@echo "... ft_treat_width.o"
+	@echo "... ft_treat_width.i"
+	@echo "... ft_treat_width.s"
 	@echo "... init_flags.o"
 	@echo "... init_flags.i"
 	@echo "... init_flags.s"

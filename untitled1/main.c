@@ -5,8 +5,7 @@ int main()
 {
     char *q = "-0.*";
 
-    ft_printf("printf>> %s", q);
-    printf("printf>> %s", q);
+    printf("printf>> %c\n", 'q');
+    ft_printf("ft_printf>> %c", 'q');
     return 0;
 }
-

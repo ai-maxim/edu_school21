@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /opt/clion-2020.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /opt/clion-2020.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/qdong/CLionProjects/untitled1
+CMAKE_SOURCE_DIR = /home/m/21/libft/untitled1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/qdong/CLionProjects/untitled1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/m/21/libft/untitled1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/untitled1.dir/depend.make
@@ -79,159 +79,198 @@ include CMakeFiles/untitled1.dir/flags.make
 
 CMakeFiles/untitled1.dir/ft_printing.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_printing.c.o: ../ft_printing.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/untitled1.dir/ft_printing.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_printing.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_printing.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/untitled1.dir/ft_printing.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_printing.c.o   -c /home/m/21/libft/untitled1/ft_printing.c
 
 CMakeFiles/untitled1.dir/ft_printing.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_printing.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_printing.c > CMakeFiles/untitled1.dir/ft_printing.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_printing.c > CMakeFiles/untitled1.dir/ft_printing.c.i
 
 CMakeFiles/untitled1.dir/ft_printing.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_printing.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_printing.c -o CMakeFiles/untitled1.dir/ft_printing.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_printing.c -o CMakeFiles/untitled1.dir/ft_printing.c.s
 
 CMakeFiles/untitled1.dir/ft_printf.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_printf.c.o: ../ft_printf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/untitled1.dir/ft_printf.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_printf.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_printf.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/untitled1.dir/ft_printf.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_printf.c.o   -c /home/m/21/libft/untitled1/ft_printf.c
 
 CMakeFiles/untitled1.dir/ft_printf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_printf.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_printf.c > CMakeFiles/untitled1.dir/ft_printf.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_printf.c > CMakeFiles/untitled1.dir/ft_printf.c.i
 
 CMakeFiles/untitled1.dir/ft_printf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_printf.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_printf.c -o CMakeFiles/untitled1.dir/ft_printf.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_printf.c -o CMakeFiles/untitled1.dir/ft_printf.c.s
 
 CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o: ../ft_pars_modifiers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_pars_modifiers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_pars_modifiers.c.o   -c /home/m/21/libft/untitled1/ft_pars_modifiers.c
 
 CMakeFiles/untitled1.dir/ft_pars_modifiers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_pars_modifiers.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_pars_modifiers.c > CMakeFiles/untitled1.dir/ft_pars_modifiers.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_pars_modifiers.c > CMakeFiles/untitled1.dir/ft_pars_modifiers.c.i
 
 CMakeFiles/untitled1.dir/ft_pars_modifiers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_pars_modifiers.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_pars_modifiers.c -o CMakeFiles/untitled1.dir/ft_pars_modifiers.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_pars_modifiers.c -o CMakeFiles/untitled1.dir/ft_pars_modifiers.c.s
 
 CMakeFiles/untitled1.dir/init_flags.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/init_flags.c.o: ../init_flags.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/untitled1.dir/init_flags.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/init_flags.c.o   -c /Users/qdong/CLionProjects/untitled1/init_flags.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/untitled1.dir/init_flags.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/init_flags.c.o   -c /home/m/21/libft/untitled1/init_flags.c
 
 CMakeFiles/untitled1.dir/init_flags.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/init_flags.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/init_flags.c > CMakeFiles/untitled1.dir/init_flags.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/init_flags.c > CMakeFiles/untitled1.dir/init_flags.c.i
 
 CMakeFiles/untitled1.dir/init_flags.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/init_flags.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/init_flags.c -o CMakeFiles/untitled1.dir/init_flags.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/init_flags.c -o CMakeFiles/untitled1.dir/init_flags.c.s
 
 CMakeFiles/untitled1.dir/print_str.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/print_str.c.o: ../print_str.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/untitled1.dir/print_str.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/print_str.c.o   -c /Users/qdong/CLionProjects/untitled1/print_str.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/untitled1.dir/print_str.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/print_str.c.o   -c /home/m/21/libft/untitled1/print_str.c
 
 CMakeFiles/untitled1.dir/print_str.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/print_str.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/print_str.c > CMakeFiles/untitled1.dir/print_str.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/print_str.c > CMakeFiles/untitled1.dir/print_str.c.i
 
 CMakeFiles/untitled1.dir/print_str.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/print_str.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/print_str.c -o CMakeFiles/untitled1.dir/print_str.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/print_str.c -o CMakeFiles/untitled1.dir/print_str.c.s
 
 CMakeFiles/untitled1.dir/parsers.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/parsers.c.o: ../parsers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/untitled1.dir/parsers.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/parsers.c.o   -c /Users/qdong/CLionProjects/untitled1/parsers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/untitled1.dir/parsers.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/parsers.c.o   -c /home/m/21/libft/untitled1/parsers.c
 
 CMakeFiles/untitled1.dir/parsers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/parsers.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/parsers.c > CMakeFiles/untitled1.dir/parsers.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/parsers.c > CMakeFiles/untitled1.dir/parsers.c.i
 
 CMakeFiles/untitled1.dir/parsers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/parsers.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/parsers.c -o CMakeFiles/untitled1.dir/parsers.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/parsers.c -o CMakeFiles/untitled1.dir/parsers.c.s
 
 CMakeFiles/untitled1.dir/print_char.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/print_char.c.o: ../print_char.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/untitled1.dir/print_char.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/print_char.c.o   -c /Users/qdong/CLionProjects/untitled1/print_char.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/untitled1.dir/print_char.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/print_char.c.o   -c /home/m/21/libft/untitled1/print_char.c
 
 CMakeFiles/untitled1.dir/print_char.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/print_char.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/print_char.c > CMakeFiles/untitled1.dir/print_char.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/print_char.c > CMakeFiles/untitled1.dir/print_char.c.i
 
 CMakeFiles/untitled1.dir/print_char.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/print_char.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/print_char.c -o CMakeFiles/untitled1.dir/print_char.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/print_char.c -o CMakeFiles/untitled1.dir/print_char.c.s
 
 CMakeFiles/untitled1.dir/main.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/untitled1.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/main.c.o   -c /Users/qdong/CLionProjects/untitled1/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/untitled1.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/main.c.o   -c /home/m/21/libft/untitled1/main.c
 
 CMakeFiles/untitled1.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/main.c > CMakeFiles/untitled1.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/main.c > CMakeFiles/untitled1.dir/main.c.i
 
 CMakeFiles/untitled1.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/main.c -o CMakeFiles/untitled1.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/main.c -o CMakeFiles/untitled1.dir/main.c.s
 
 CMakeFiles/untitled1.dir/ft_atoi.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_atoi.c.o: ../ft_atoi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/untitled1.dir/ft_atoi.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_atoi.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_atoi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/untitled1.dir/ft_atoi.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_atoi.c.o   -c /home/m/21/libft/untitled1/ft_atoi.c
 
 CMakeFiles/untitled1.dir/ft_atoi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_atoi.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_atoi.c > CMakeFiles/untitled1.dir/ft_atoi.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_atoi.c > CMakeFiles/untitled1.dir/ft_atoi.c.i
 
 CMakeFiles/untitled1.dir/ft_atoi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_atoi.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_atoi.c -o CMakeFiles/untitled1.dir/ft_atoi.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_atoi.c -o CMakeFiles/untitled1.dir/ft_atoi.c.s
 
 CMakeFiles/untitled1.dir/ft_isdigit.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_isdigit.c.o: ../ft_isdigit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/untitled1.dir/ft_isdigit.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_isdigit.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_isdigit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/untitled1.dir/ft_isdigit.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_isdigit.c.o   -c /home/m/21/libft/untitled1/ft_isdigit.c
 
 CMakeFiles/untitled1.dir/ft_isdigit.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_isdigit.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_isdigit.c > CMakeFiles/untitled1.dir/ft_isdigit.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_isdigit.c > CMakeFiles/untitled1.dir/ft_isdigit.c.i
 
 CMakeFiles/untitled1.dir/ft_isdigit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_isdigit.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_isdigit.c -o CMakeFiles/untitled1.dir/ft_isdigit.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_isdigit.c -o CMakeFiles/untitled1.dir/ft_isdigit.c.s
 
 CMakeFiles/untitled1.dir/ft_strchr.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_strchr.c.o: ../ft_strchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/untitled1.dir/ft_strchr.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_strchr.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_strchr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/untitled1.dir/ft_strchr.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_strchr.c.o   -c /home/m/21/libft/untitled1/ft_strchr.c
 
 CMakeFiles/untitled1.dir/ft_strchr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_strchr.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_strchr.c > CMakeFiles/untitled1.dir/ft_strchr.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_strchr.c > CMakeFiles/untitled1.dir/ft_strchr.c.i
 
 CMakeFiles/untitled1.dir/ft_strchr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_strchr.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_strchr.c -o CMakeFiles/untitled1.dir/ft_strchr.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_strchr.c -o CMakeFiles/untitled1.dir/ft_strchr.c.s
 
 CMakeFiles/untitled1.dir/ft_strlen.c.o: CMakeFiles/untitled1.dir/flags.make
 CMakeFiles/untitled1.dir/ft_strlen.c.o: ../ft_strlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/untitled1.dir/ft_strlen.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_strlen.c.o   -c /Users/qdong/CLionProjects/untitled1/ft_strlen.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/untitled1.dir/ft_strlen.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_strlen.c.o   -c /home/m/21/libft/untitled1/ft_strlen.c
 
 CMakeFiles/untitled1.dir/ft_strlen.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_strlen.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/qdong/CLionProjects/untitled1/ft_strlen.c > CMakeFiles/untitled1.dir/ft_strlen.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_strlen.c > CMakeFiles/untitled1.dir/ft_strlen.c.i
 
 CMakeFiles/untitled1.dir/ft_strlen.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_strlen.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/qdong/CLionProjects/untitled1/ft_strlen.c -o CMakeFiles/untitled1.dir/ft_strlen.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_strlen.c -o CMakeFiles/untitled1.dir/ft_strlen.c.s
+
+CMakeFiles/untitled1.dir/ft_putstr_prec.c.o: CMakeFiles/untitled1.dir/flags.make
+CMakeFiles/untitled1.dir/ft_putstr_prec.c.o: ../ft_putstr_prec.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/untitled1.dir/ft_putstr_prec.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_putstr_prec.c.o   -c /home/m/21/libft/untitled1/ft_putstr_prec.c
+
+CMakeFiles/untitled1.dir/ft_putstr_prec.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_putstr_prec.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_putstr_prec.c > CMakeFiles/untitled1.dir/ft_putstr_prec.c.i
+
+CMakeFiles/untitled1.dir/ft_putstr_prec.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_putstr_prec.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_putstr_prec.c -o CMakeFiles/untitled1.dir/ft_putstr_prec.c.s
+
+CMakeFiles/untitled1.dir/ft_treat_width.c.o: CMakeFiles/untitled1.dir/flags.make
+CMakeFiles/untitled1.dir/ft_treat_width.c.o: ../ft_treat_width.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/untitled1.dir/ft_treat_width.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_treat_width.c.o   -c /home/m/21/libft/untitled1/ft_treat_width.c
+
+CMakeFiles/untitled1.dir/ft_treat_width.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_treat_width.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_treat_width.c > CMakeFiles/untitled1.dir/ft_treat_width.c.i
+
+CMakeFiles/untitled1.dir/ft_treat_width.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_treat_width.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_treat_width.c -o CMakeFiles/untitled1.dir/ft_treat_width.c.s
+
+CMakeFiles/untitled1.dir/ft_putchar.c.o: CMakeFiles/untitled1.dir/flags.make
+CMakeFiles/untitled1.dir/ft_putchar.c.o: ../ft_putchar.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/untitled1.dir/ft_putchar.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/untitled1.dir/ft_putchar.c.o   -c /home/m/21/libft/untitled1/ft_putchar.c
+
+CMakeFiles/untitled1.dir/ft_putchar.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/untitled1.dir/ft_putchar.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/21/libft/untitled1/ft_putchar.c > CMakeFiles/untitled1.dir/ft_putchar.c.i
+
+CMakeFiles/untitled1.dir/ft_putchar.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/untitled1.dir/ft_putchar.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/21/libft/untitled1/ft_putchar.c -o CMakeFiles/untitled1.dir/ft_putchar.c.s
 
 # Object files for target untitled1
 untitled1_OBJECTS = \
@@ -246,7 +285,10 @@ untitled1_OBJECTS = \
 "CMakeFiles/untitled1.dir/ft_atoi.c.o" \
 "CMakeFiles/untitled1.dir/ft_isdigit.c.o" \
 "CMakeFiles/untitled1.dir/ft_strchr.c.o" \
-"CMakeFiles/untitled1.dir/ft_strlen.c.o"
+"CMakeFiles/untitled1.dir/ft_strlen.c.o" \
+"CMakeFiles/untitled1.dir/ft_putstr_prec.c.o" \
+"CMakeFiles/untitled1.dir/ft_treat_width.c.o" \
+"CMakeFiles/untitled1.dir/ft_putchar.c.o"
 
 # External object files for target untitled1
 untitled1_EXTERNAL_OBJECTS =
@@ -263,9 +305,12 @@ untitled1: CMakeFiles/untitled1.dir/ft_atoi.c.o
 untitled1: CMakeFiles/untitled1.dir/ft_isdigit.c.o
 untitled1: CMakeFiles/untitled1.dir/ft_strchr.c.o
 untitled1: CMakeFiles/untitled1.dir/ft_strlen.c.o
+untitled1: CMakeFiles/untitled1.dir/ft_putstr_prec.c.o
+untitled1: CMakeFiles/untitled1.dir/ft_treat_width.c.o
+untitled1: CMakeFiles/untitled1.dir/ft_putchar.c.o
 untitled1: CMakeFiles/untitled1.dir/build.make
 untitled1: CMakeFiles/untitled1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable untitled1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable untitled1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -278,6 +323,6 @@ CMakeFiles/untitled1.dir/clean:
 .PHONY : CMakeFiles/untitled1.dir/clean
 
 CMakeFiles/untitled1.dir/depend:
-	cd /Users/qdong/CLionProjects/untitled1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/qdong/CLionProjects/untitled1 /Users/qdong/CLionProjects/untitled1 /Users/qdong/CLionProjects/untitled1/cmake-build-debug /Users/qdong/CLionProjects/untitled1/cmake-build-debug /Users/qdong/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/m/21/libft/untitled1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/m/21/libft/untitled1 /home/m/21/libft/untitled1 /home/m/21/libft/untitled1/cmake-build-debug /home/m/21/libft/untitled1/cmake-build-debug /home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/untitled1.dir/depend
 

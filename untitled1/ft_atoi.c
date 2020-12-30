@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Desktop/libft/ft_printf/libft/libft.h"
+#include "ft_printf.h"
 
 int		check_nonprintable(char str)
 {
