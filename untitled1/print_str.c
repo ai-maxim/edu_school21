@@ -13,41 +13,41 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-void	print_str(char *str, t_struct *f)
+void	print_str(char *str, t_struct *flags)
 {
-	int strlen;
+    int strlen;
 
-	if (!str)
-		str = NULL;
-	strlen = ft_strlen(str);
-	if (f->accuracy_specified && strlen > 0 && strlen > f->accuracy)
-		strlen = f->accuracy;
-	f->len += write(f->fd, str, strlen);
-	while (f->width > strlen)
-	{
-		f->len += write(f->fd, " ", 1);
-		f->width--;
-	}
+    if (!str)
+        str = NULL;
+    strlen = ft_strlen(str);
+    if (flags->accuracy_specified && strlen > 0 && strlen > flags->accuracy)
+        strlen = flags->accuracy;
+    flags->len += write(flags->fd, str, strlen);
+    while (flags->width > strlen)
+    {
+        flags->len += write(flags ->fd, " ", 1);
+        flags->width--;
+    }
 }
 
-void	ft_print_str_right(char *str, t_struct *f)
+void	ft_print_str_right(char *str, t_struct *flags)
 {
 	int strlen;
 
 	if (!str)
 		str = NULL;
 	strlen = ft_strlen(str);
-	if (f->accuracy_specified && strlen > 0 && strlen > f->accuracy)
-		strlen = f->accuracy;
-	while (f->width > *str)
+	if (flags->accuracy_specified && strlen > 0 && strlen > flags->accuracy)
+		strlen = flags->accuracy;
+	while (flags->width > *str)
 	{
-		if (f->zero)
-			f->len += write(f->fd, "0", 1);
+		if (flags->zero)
+			flags->len += write(flags->fd, "0", 1);
 		else
-			f->len += write(f->fd, " ", 1);
-		f->width--;
+			flags->len += write(flags->fd, " ", 1);
+		flags->width--;
 	}
-	f->len += write(f->fd, str, strlen);
+	flags->len += write(flags->fd, str, strlen);
 }
 
 //static void ft_print_wide_str_left(wchar_t *wstr, t_struct *f)

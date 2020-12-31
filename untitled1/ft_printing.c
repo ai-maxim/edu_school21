@@ -12,12 +12,13 @@
 
 #include "ft_printf.h"
 
-void  ft_printing(char *str, t_struct *data)
+void  ft_printing(char *str, t_struct *data, va_list *ap)
 {
-	if (data->i == 's')
-		print_str(str, data);
-	if (data->i == 'c')
-	   print_char(*str, data);
+	if (data->type == 's')
+		print_str(va_arg(*ap, char *), data);
+	if (data->type == 'c')
+	    print_char(va_arg(*ap, char *), data);
+
 	// if (data->i == 'd' || data->i == 'i')
 	//   print_deci(data);
 	// if (data->i == 'u')

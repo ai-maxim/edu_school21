@@ -25,6 +25,8 @@ void		flag(char *format, t_struct *flags)
 			flags->zero = 1;
 		else if (format[flags->i] == '.')
 			flags->dot = 1;
+		else
+		    return;
 		flags->i++;
 	}
 }
@@ -33,11 +35,10 @@ int			width(char *format, t_struct *flags, va_list *ap)
 {
 	int		width;
 
-	if (ft_isdigit(format[flags->i]) &&
-		format[flags->i] != '0')
+	if (ft_isdigit(format[flags->i]) && format[flags->i] != '0')
 	{
 		flags->width = ft_atoi(&format[flags->i]);
-		while (ft_isdigit(format[flags->i]))
+ 		while (ft_isdigit(format[flags->i]))
 				flags->i++;
 	}
 	else if (format[flags->i] == '*')
@@ -92,5 +93,6 @@ int			ft_pars_modifiers(char *format, t_struct *flags, va_list *ap)
 		return (0);
 	if (!ft_accuracy(format, flags, ap))
 		return (0);
+	ft_chec_type(format, flags);
 	return (1);
 }

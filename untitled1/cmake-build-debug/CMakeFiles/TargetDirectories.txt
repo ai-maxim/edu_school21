@@ -1,3 +1,3 @@
-/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/m/21/libft/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir
+/Users/qdong/Desktop/clone/libft/untitled1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/qdong/Desktop/clone/libft/untitled1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/qdong/Desktop/clone/libft/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir

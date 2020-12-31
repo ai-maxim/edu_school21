@@ -12,25 +12,25 @@
 
 #include "ft_printf.h"
 
-void		print_char(unsigned char c, t_struct *f)
+void		print_char(unsigned char c, t_struct *flags)
 {
-	f->len += write(f->fd, &c, 1);
-	while (f->width > 1)
+	flags->len += write(flags->fd, &c, 1);
+	while (flags->width > 1)
 	{
-		f->len += write(f->fd, " ", 1);
-		f->width--;
+		flags->len += write(flags->fd, " ", 1);
+		flags->width--;
 	}
 }
 
-void		print_char_right(unsigned char c, t_struct *f)
+void		print_char_right(unsigned char c, t_struct *flags)
 {
-	while (f->width > 1)
+	while (flags->width > 1)
 	{
-		if (f->zero)
-			f->len += write(f->fd, "0", 1);
+		if (flags->zero)
+			flags->len += write(flags->fd, "0", 1);
 		else
-			f->len += write(f->fd, " ", 1);
-		f->width--;
+			flags->len += write(flags->fd, " ", 1);
+		flags->width--;
 	}
-	f->len += write(f->fd, &c, 1);
+	flags->len += write(flags->fd, &c, 1);
 }

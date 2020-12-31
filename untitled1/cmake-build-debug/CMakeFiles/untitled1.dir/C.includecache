@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/m/21/libft/untitled1/ft_printf.h
+/Users/qdong/Desktop/clone/libft/untitled1/ft_printf.h
 libft/libft.h
-/home/m/21/libft/untitled1/libft/libft.h
+/Users/qdong/Desktop/clone/libft/untitled1/libft/libft.h
 stdio.h
 -
 stdarg.h
@@ -17,8 +17,10 @@ stdlib.h
 -
 unistd.h
 -
+stdio.h
+-
 
-/home/m/21/libft/untitled1/libft/libft.h
+/Users/qdong/Desktop/clone/libft/untitled1/libft/libft.h
 stddef.h
 -
 unistd.h
@@ -28,9 +30,9 @@ stdlib.h
 ctype.h
 -
 
-/home/m/21/libft/untitled1/main.c
+/Users/qdong/Desktop/clone/libft/untitled1/print_str.c
 ft_printf.h
-/home/m/21/libft/untitled1/ft_printf.h
-stdio.h
--
+/Users/qdong/Desktop/clone/libft/untitled1/ft_printf.h
+libft/libft.h
+/Users/qdong/Desktop/clone/libft/untitled1/libft/libft.h
 

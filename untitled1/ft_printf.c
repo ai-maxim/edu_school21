@@ -15,16 +15,16 @@
 int					ft_printf(const char *format, ...)
 {
 	va_list			ap;
-	char			*str;
+//	char			*str;
 	int				out;
 	t_struct		flags;
 
 	flags = (t_struct){0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	va_start(ap, format);
-	if ((out = pars_str((char *)format, &flags, &ap)) == -1)
+	if ((out = parsers((char *)format, &flags, &ap)) == -1)
 		return (-1);
-	str = va_arg(ap, char*);
+//	str = va_arg(ap, char*);
 	va_end(ap);
 	return(out);
 }

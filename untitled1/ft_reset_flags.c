@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   init_flags.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/04 22:00:01 by qdong            ###   ########.fr       */
+/*   Created: 2020/12/28 12:18:46 by qdong             #+#    #+#             */
+/*   Updated: 2020/12/29 13:37:42 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_reset_flags(t_struct *flags)
 {
-	size_t	i;
-
-	i = 0;
-	if (!str)
-        return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	flags->minus = 0;
+	flags->zero = 0;
+	flags->dot = 0;
+	flags->accuracy = 0;
+	flags->width = 0;
+	flags->accuracy_specified = 0;
+	flags->accuracy = 0;
+	flags->type = 0;
 }

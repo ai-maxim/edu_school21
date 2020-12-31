@@ -5,6 +5,10 @@ CMakeFiles/untitled1.dir/ft_atoi.c.o: ../ft_atoi.c
 CMakeFiles/untitled1.dir/ft_atoi.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/ft_atoi.c.o: ../libft/libft.h
 
+CMakeFiles/untitled1.dir/ft_done_width.c.o: ../ft_done_width.c
+CMakeFiles/untitled1.dir/ft_done_width.c.o: ../ft_printf.h
+CMakeFiles/untitled1.dir/ft_done_width.c.o: ../libft/libft.h
+
 CMakeFiles/untitled1.dir/ft_isdigit.c.o: ../ft_isdigit.c
 CMakeFiles/untitled1.dir/ft_isdigit.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/ft_isdigit.c.o: ../libft/libft.h
@@ -21,6 +25,22 @@ CMakeFiles/untitled1.dir/ft_printing.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/ft_printing.c.o: ../ft_printing.c
 CMakeFiles/untitled1.dir/ft_printing.c.o: ../libft/libft.h
 
+CMakeFiles/untitled1.dir/ft_putchar.c.o: ../ft_printf.h
+CMakeFiles/untitled1.dir/ft_putchar.c.o: ../ft_putchar.c
+CMakeFiles/untitled1.dir/ft_putchar.c.o: ../libft/libft.h
+
+CMakeFiles/untitled1.dir/ft_putchar_fd.c.o: ../ft_printf.h
+CMakeFiles/untitled1.dir/ft_putchar_fd.c.o: ../ft_putchar_fd.c
+CMakeFiles/untitled1.dir/ft_putchar_fd.c.o: ../libft/libft.h
+
+CMakeFiles/untitled1.dir/ft_putstr_chec.c.o: ../ft_printf.h
+CMakeFiles/untitled1.dir/ft_putstr_chec.c.o: ../ft_putstr_chec.c
+CMakeFiles/untitled1.dir/ft_putstr_chec.c.o: ../libft/libft.h
+
+CMakeFiles/untitled1.dir/ft_reset_flags.c.o: ../ft_printf.h
+CMakeFiles/untitled1.dir/ft_reset_flags.c.o: ../ft_reset_flags.c
+CMakeFiles/untitled1.dir/ft_reset_flags.c.o: ../libft/libft.h
+
 CMakeFiles/untitled1.dir/ft_strchr.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/ft_strchr.c.o: ../ft_strchr.c
 CMakeFiles/untitled1.dir/ft_strchr.c.o: ../libft/libft.h
@@ -28,10 +48,6 @@ CMakeFiles/untitled1.dir/ft_strchr.c.o: ../libft/libft.h
 CMakeFiles/untitled1.dir/ft_strlen.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/ft_strlen.c.o: ../ft_strlen.c
 CMakeFiles/untitled1.dir/ft_strlen.c.o: ../libft/libft.h
-
-CMakeFiles/untitled1.dir/init_flags.c.o: ../ft_printf.h
-CMakeFiles/untitled1.dir/init_flags.c.o: ../init_flags.c
-CMakeFiles/untitled1.dir/init_flags.c.o: ../libft/libft.h
 
 CMakeFiles/untitled1.dir/main.c.o: ../ft_printf.h
 CMakeFiles/untitled1.dir/main.c.o: ../libft/libft.h

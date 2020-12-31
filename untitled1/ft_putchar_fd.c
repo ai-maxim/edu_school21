@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_flags.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 12:18:46 by qdong             #+#    #+#             */
-/*   Updated: 2020/12/29 13:37:42 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/10 17:57:57 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/13 15:47:08 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_f(t_struct *f)
+void	ft_putchar_fd(char c, int fd)
 {
-	f->minus = 0;
-	f->zero = 0;
-	f->dot = 0;
-	f->accuracy = 0;
-	f->width = 0;
-	f->accuracy_specified = 0;
-	f->accuracy = 0;
+	write(fd, &c, 1);
 }
