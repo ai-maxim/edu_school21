@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_procent.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 12:19:55 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/04 18:55:48 by qdong            ###   ########.fr       */
+/*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
+/*   Updated: 2021/01/03 18:41:27 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void    print_procent(t_struct *flags)
+size_t	ft_strlen(const char *str)
 {
-    print_char('%', flags);
+	size_t	i;
+
+	i = 0;
+	if (!str)
+        return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

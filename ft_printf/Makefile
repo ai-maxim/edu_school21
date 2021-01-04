@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 14:56:09 by qdong             #+#    #+#              #
-#    Updated: 2020/12/28 15:19:49 by qdong            ###   ########.fr        #
+#    Updated: 2021/01/04 21:16:42 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,15 @@ NAME = libftprintf.a
 
 SRCS =	ft_printf.c			\
 		ft_printing.c 		\
-		ft_pars_modifiers.c \
+		pars_modifiers.c \
 		parsers.c 			\
-		init_flags.c 		\
-		ft_strlen.c			\
+		ft_done_width.c		\
+		ft_putstr_chec.c	\
+		reset_flags.c	\
 		print_str.c			\
-		print_char.c
+		print_char.c	\
+		print_procent.c		\
+		print_deci.c
 
 CFLAGS = -Wall -Werror -Wextra
 

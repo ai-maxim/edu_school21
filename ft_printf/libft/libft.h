@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:48:26 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/16 16:53:05 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/04 19:24:34 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char				*ft_substr(char const *str, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *str, char const *set);
 char				*ft_substr(char const *str, unsigned int start, size_t len);
-char				*ft_itoa(int	n);
+char				*ft_itoa(int64_t n);
 char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);

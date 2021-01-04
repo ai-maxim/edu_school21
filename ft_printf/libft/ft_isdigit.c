@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_procent.c                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 12:19:55 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/04 18:55:48 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/02 20:05:34 by qdong             #+#    #+#             */
+/*   Updated: 2021/01/03 18:41:44 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void    print_procent(t_struct *flags)
+int	    ft_isdigit(int c)
 {
-    print_char('%', flags);
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }

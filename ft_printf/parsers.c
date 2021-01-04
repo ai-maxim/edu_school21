@@ -12,26 +12,41 @@
 
 #include "ft_printf.h"
 
-int		pars_str(char *format, t_struct *flags, va_list *ap)
+int		parsers(char *format, t_struct *flags, va_list *ap)
 {
-	while (format[flags->i] != '\0')
+    while (format[flags->i] != '\0')
 	{
-		if (format[flags->i] == '%')
+        if (format[flags->i] == '%')
 		{
-			flags->i++;
-			if (ft_strchr("#-+ .*0123456789hljz", format[flags->i]))
-				ft_pars_modifiers(format, flags, ap);
-			if (ft_strchr("sSpdDioOuUxXcCbr%", format[flags->i]))
-			{
-				ft_printing(format, flags);
-				if (flags->len == -1)
-					return (0);
-				ft_init_f(flags);
-			}
+            flags->i++;
+            pars_modifiers(format, flags, ap);
+            ft_printing(flags, ap);
+            if (flags->len == -1)
+                return (0);
+            reset_flags(flags);
 		}
 		else
-			flags->len += write(flags->fd, &format[flags->i], 1);
-		flags->i++;
+        {
+            flags->len += write(1, &format[flags->i], 1);
+            flags->i++;
+        }
 	}
 	return (flags->len);
+}
+
+char    *chec_type(char *format, t_struct *flags)
+{
+    if (format[flags->i] == 'c' || format[flags->i] == 's' || format[flags->i] == 'p' ||
+        format[flags->i] == 'd' || format[flags->i] == 'i' || format[flags->i] == 'u' ||
+        format[flags->i] == 'x' || format[flags->i] == 'X' || format[flags->i] == '%')
+    {
+        flags->type = format[flags->i];
+        flags->i++;
+    }
+    else
+    {
+        flags->type = -1;
+        return (NULL);
+    }
+    return (format);
 }

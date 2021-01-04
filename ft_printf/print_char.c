@@ -6,31 +6,42 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 12:07:54 by qdong             #+#    #+#             */
-/*   Updated: 2020/12/29 15:26:44 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/04 18:59:21 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_char(unsigned char c, t_struct *f)
+static void		print_left(unsigned char c, t_struct *flags)
 {
-	f->len += write(f->fd, &c, 1);
-	while (f->width > 1)
-	{
-		f->len += write(f->fd, " ", 1);
-		f->width--;
-	}
+    flags->len += write(1, &c, 1);
+    while (flags->width > 1)
+    {
+        // if (flags->zero)
+        //     flags->len += write(1, "0", 1);
+        // else
+            flags->len += write(1, " ", 1);
+        flags->width--;
+    }
 }
 
-void		print_char_right(unsigned char c, t_struct *f)
+static void		print_right(unsigned char c, t_struct *flags)
 {
-	while (f->width > 1)
-	{
-		if (f->zero)
-			f->len += write(f->fd, "0", 1);
-		else
-			f->len += write(f->fd, " ", 1);
-		f->width--;
-	}
-	f->len += write(f->fd, &c, 1);
+    while (flags->width > 1)
+    {
+        if (flags->zero)
+            flags->len += write(1, "0", 1);
+        else
+            flags->len += write(1, " ", 1);
+        flags->width--;
+    }
+    flags->len += write(1, &c, 1);
+}
+
+void		    print_char(unsigned char c, t_struct *flags)
+{
+    if (flags->minus == 1)
+        print_left(c, flags);
+    else
+        print_right(c, flags);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_procent.c                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 12:19:55 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/04 18:55:48 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/02 22:20:00 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/06 22:14:07 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    print_procent(t_struct *flags)
+char	*ft_strchr(const char *s, int c)
 {
-    print_char('%', flags);
+	int		i;
+	char	*tmp;
+
+	tmp = (char *)s;
+	i = 0;
+	while (tmp[i] != c && tmp[i] != '\0')
+		i++;
+	if (tmp[i] == c)
+		return (&tmp[i]);
+	return (NULL);
 }
