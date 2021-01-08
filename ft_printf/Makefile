@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 14:56:09 by qdong             #+#    #+#              #
-#    Updated: 2021/01/04 21:16:42 by qdong            ###   ########.fr        #
+#    Updated: 2021/01/07 22:32:45 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS =	ft_printf.c			\
 		print_str.c			\
 		print_char.c	\
 		print_procent.c		\
-		print_deci.c
+		print_deci.c	\
+		print_unsig_deci.c
 
 CFLAGS = -Wall -Werror -Wextra
 

@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:48:26 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/04 19:24:34 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/07 22:16:00 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void				*ft_memccpy(void *dest, const void *src, int c, size_t len);
 void				*ft_memmove(void *dest, const void *src, size_t len);
 void				*ft_memchr(const void *arr, int c, size_t len);
 int					ft_memcmp(const void *s1, const void *s2, size_t len);
-size_t				ft_strlen(const char *str);
+int					ft_strlen(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

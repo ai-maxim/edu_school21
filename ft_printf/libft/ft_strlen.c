@@ -6,15 +6,15 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/03 18:41:27 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/07 21:17:42 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!str)

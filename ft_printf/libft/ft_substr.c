@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:56:25 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/16 18:56:20 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/07 21:58:37 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char				*ft_substr(char const *str, unsigned int start, size_t len)
 
 	if (!str)
 		return (0);
-	if (start >= ft_strlen(str))
+	if (start >= (unsigned)ft_strlen(str))
 	{
 		if (!(str_mem = (char *)malloc(sizeof(char) * (len + 1))))
 			return (NULL);

@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:28:47 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/04 18:20:02 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/08 19:46:00 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		flag(char *format, t_struct *flags)
 		else if (format[flags->i] == '.')
 			flags->dot = 1;
 		else
-		    return;
+			return;
 		flags->i++;
 	}
 }
@@ -65,7 +65,10 @@ int			accuracy(char *format, t_struct *flags, va_list *ap)
 	if (format[flags->i] == '.' || flags->dot == 1)
 	{
 		if (format[flags->i] == '.')
+		{
+			flags->dot = 1;
 			flags->i++;
+		}
 		flags->accuracy_specified = 1;
 		if(ft_isdigit(format[flags->i]))
 		{

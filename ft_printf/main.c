@@ -3,6 +3,8 @@
 
 int main()
 {
+    int n = 156;
+    int *np = &n;
 //    int i;
 //    char *q = "-0.*";
 //    char *q = "hi low";
@@ -10,17 +12,20 @@ int main()
 //    i = 0;
 //    i = printf("printf>> |%29s|\n", q);
 //    printf("return: %d\n", i);
-//    i = ft_printf("ft_printf>> |%29s|\n", q);
 //    printf("return: %d", i);
+//    i = ft_printf("ft_printf>> |%29s|\n", q);
 
     // printf("\nEXAMPLE \n|%.7s|\n ", q);
     // ft_printf("\nEXAMPLE \n|%.7s|\n ", q);
 
-    // printf("%05%\n");
-    // ft_printf("%05%\n");
+    printf("%-15p\n", np);
+//    ft_printf("%p\n", np);
 
-    printf("%-4d", -21);
-    ft_printf("%-4d", -21);
+    // i = ft_printf("%.5d\n", 2);
+    // printf("if = %d\n", i);
+    // i = printf("%.5d\n", 2);
+    // printf("io = %d\n", i);
+
 
 //    printf("print>> %s\n", "string");
 //    ft_printf("ft_printf>> %s\n", "string");
