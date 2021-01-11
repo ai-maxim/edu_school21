@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/07 21:17:42 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:40:57 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strlen(const char *str)
 
 	i = 0;
 	if (!str)
-        return (0);
+		return (0);
 	while (str[i] != '\0')
 		i++;
 	return (i);

@@ -6,24 +6,26 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 14:56:09 by qdong             #+#    #+#              #
-#    Updated: 2021/01/07 22:32:45 by qdong            ###   ########.fr        #
+#    Updated: 2021/01/10 16:03:50 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS =	ft_printf.c			\
-		ft_printing.c 		\
-		pars_modifiers.c \
-		parsers.c 			\
-		ft_done_width.c		\
-		ft_putstr_chec.c	\
-		reset_flags.c	\
+		printing.c			\
+		pars_modifiers.c	\
+		parsers.c			\
+		putstr_chec.c		\
+		reset_flags.c		\
+		itoa_base2.c			\
 		print_str.c			\
-		print_char.c	\
+		print_char.c		\
 		print_procent.c		\
-		print_deci.c	\
-		print_unsig_deci.c
+		print_deci.c		\
+		print_unsig_deci.c	\
+		print_x.c			\
+		print_pointer.c
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -51,7 +53,7 @@ clean:
 				rm -f ${OBJS}
 
 fclean: clean
-	 			rm -f ${NAME}
+				rm -f ${NAME}
 				make fclean -C ./libft/
 
 re:			fclean all

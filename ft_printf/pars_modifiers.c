@@ -6,16 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:28:47 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/08 19:46:00 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/10 20:26:38 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//void    length(char *format, t_struct *flags)
-// для бонуса
-
-void		flag(char *format, t_struct *flags)
+void			flag(char *format, t_struct *flags)
 {
 	while (ft_strchr("-0.*", format[flags->i]))
 	{
@@ -26,20 +23,20 @@ void		flag(char *format, t_struct *flags)
 		else if (format[flags->i] == '.')
 			flags->dot = 1;
 		else
-			return;
+			return ;
 		flags->i++;
 	}
 }
 
-int			width(char *format, t_struct *flags, va_list *ap)
+int				width(char *format, t_struct *flags, va_list *ap)
 {
 	int		width;
 
 	if (ft_isdigit(format[flags->i]) && format[flags->i] != '0')
 	{
 		flags->width = ft_atoi(&format[flags->i]);
- 		while (ft_isdigit(format[flags->i]))
-				flags->i++;
+		while (ft_isdigit(format[flags->i]))
+			flags->i++;
 	}
 	else if (format[flags->i] == '*')
 	{
@@ -58,10 +55,21 @@ int			width(char *format, t_struct *flags, va_list *ap)
 	return (1);
 }
 
-int			accuracy(char *format, t_struct *flags, va_list *ap)
+static void		acc_star(char *format, t_struct *flags, va_list *ap)
 {
-	int		accuracy;
+	flags->accuracy = va_arg(*ap, int);
+	if (flags->accuracy < 0)
+	{
+		flags->accuracy = 0;
+		flags->dot = 0;
+		flags->accuracy_specified = 0;
+	}
+	while (format[flags->i] == '*')
+		(flags->i)++;
+}
 
+int				accuracy(char *format, t_struct *flags, va_list *ap)
+{
 	if (format[flags->i] == '.' || flags->dot == 1)
 	{
 		if (format[flags->i] == '.')
@@ -70,27 +78,19 @@ int			accuracy(char *format, t_struct *flags, va_list *ap)
 			flags->i++;
 		}
 		flags->accuracy_specified = 1;
-		if(ft_isdigit(format[flags->i]))
+		if (ft_isdigit(format[flags->i]))
 		{
 			flags->accuracy = ft_atoi(&format[flags->i]);
 			while (ft_isdigit(format[flags->i]))
 				flags->i++;
 		}
 		else if (format[flags->i] == '*')
-		{
-			accuracy = va_arg(*ap, int);
-			if (accuracy >= 0)
-				flags->accuracy = accuracy;
-			else
-				flags->accuracy_specified = 0;
-			while (format[flags->i] == '*')
-				(flags->i)++;
-		}
+			acc_star(format, flags, ap);
 	}
 	return (1);
 }
 
-int         pars_modifiers(char *format, t_struct *flags, va_list *ap)
+int				pars_modifiers(char *format, t_struct *flags, va_list *ap)
 {
 	flag(format, flags);
 	if (flags->dot == 0 && !width(format, flags, ap))

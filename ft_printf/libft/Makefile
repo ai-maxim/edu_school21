@@ -12,13 +12,9 @@ SRCS = ft_memset.c ft_bzero.c ft_strlen.c ft_memcpy.c\
 
 CFLAGS = -Wall -Werror -Wextra
 
-BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
-		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c\
-		ft_lstmap.c
 
 OBJS =	$(SRCS:.c=.o)
 
-BON =	$(BONUS:.c=.o)
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $@
@@ -29,12 +25,9 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
-bonus:	$(BON)
-		ar rc $(NAME) $(BON)
-		ranlib $(NAME)
 
 clean:
-		rm -rf $(OBJS) $(BON)
+		rm -rf $(OBJS)
 
 fclean:	clean
 		rm -rf $(NAME)

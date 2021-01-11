@@ -6,64 +6,38 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:07:22 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/19 09:36:58 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/11 18:44:29 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <stdio.h>
 
-int   ft_strlen(char *list)
+int			get_next_line(int fd, char **line)
 {
-  int i;
+	char	buf;
+	int		byte;
+	int		BUFFER_SIZE;
 
-  i = 0;
-  while (list[i] != '\0')
-    i++;
-  return (i);
-}
-
-char	*ft_strjoin(char *line, char *list)
-{
-	int		count;
-	int		i;
-	char	*array;
-
-	count = 0;
-	i = 0;
-	array = (char *)malloc(((ft_strlen(line) +
-					ft_strlen(list)) + 1) * sizeof(char));
-	if (!array)
-		return (NULL);
-	while (line[count] != '\0')
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+//	*line = '\0';
+	byte = 0;
+	while ((byte = read(fd, buf, BUFFER_SIZE)));
 	{
-		array[count] = line[count];
-		count++;
+		buf = '\0';
+		*line = ft_strjoin(*line, &buf);
 	}
-	while (list[i] != '\0')
-		array[count++] = list[i++];
-	array[count] = '\0';
-	return (array);
+	buf[byte] = '\0';
+	return (0);
 }
 
-int	get_next_line(int fd, char **line)
-{
-    char buf[10 + 1];
-    int     byte;
-
-    *line = '\0';
-	while ((byte = read(fd, buf, 10)));
-    {
-        buf[10] = '\0';
-        *line = ft_strjoin(*line, buf);
-    }
-    return (0);
-}
 int main(void)
 {
-    int fd;
-    char *line;
+	int fd;
+	char *line;
 
-    fd = open("text.txt", O_RDONLY);
-    get_next_line(fd, &line);
-    printf("%s\n", line);
+	fd = open("text.txt", O_RDONLY);
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+	return (0);
 }

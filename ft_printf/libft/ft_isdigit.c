@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 20:05:34 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/03 18:41:44 by qdong            ###   ########.fr       */
+/*   Updated: 2021/01/10 19:43:05 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	    ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
 	if (c > 47 && c < 58)
 		return (1);

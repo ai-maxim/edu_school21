@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_flags.c                                      :+:      :+:    :+:   */
+/*   putstr_chec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 12:18:46 by qdong             #+#    #+#             */
-/*   Updated: 2021/01/11 15:20:41 by qdong            ###   ########.fr       */
+/*   Created: 2021/01/10 19:26:11 by qdong             #+#    #+#             */
+/*   Updated: 2021/01/10 19:33:30 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	reset_flags(t_struct *flags)
+int		putstr_chec(char *str, int chec)
 {
-	flags->minus = 0;
-	flags->zero = 0;
-	flags->dot = 0;
-	flags->width = 0;
-	flags->accuracy_specified = 0;
-	flags->accuracy = 0;
-	flags->type = 0;
+	int count;
+
+	count = 0;
+	while (str[count] && count < chec)
+		ft_putchar(str[count++]);
+	return (count);
 }
