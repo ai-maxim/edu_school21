@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'database_name_here' );
+define( 'DB_NAME', 'ft_server' );
 
 /** MySQL database username */
-define( 'DB_USER', 'username_here' );
+define( 'DB_USER', 'wp' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'password_here' );
+define( 'DB_PASSWORD', '11111' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -63,7 +63,7 @@ define('NONCE_SALT',       'f mcUaGPgk[h47[g(Y]yBaHs%KCA1{z}|)0$=UY~9|F=T(n=^.}|
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'wp_';
+$table_prefix = 'ft_server';
 
 /**
  * For developers: WordPress debugging mode.
@@ -88,3 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+// Использование SSL
+// define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
