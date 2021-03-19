@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:54:08 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/11 22:05:35 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/12 21:55:03 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "mlx.h"
-#include "vector.h"
-#include "utils.h"
-#include "camera.h"
-#include "scena.h"
-#include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
 
-//char **pars_data(char *name, t_scena *scena);
+t_list	*ft_lstnew(void *content)
+{
+	t_list *new;
 
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
-
-#endif
+	new = NULL;
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

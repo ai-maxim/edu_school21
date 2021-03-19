@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:54:08 by qdong            ###   ########.fr       */
+/*   Created: 2020/10/30 17:18:43 by qdong             #+#    #+#             */
+/*   Updated: 2021/01/10 19:40:57 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "mlx.h"
-#include "vector.h"
-#include "utils.h"
-#include "camera.h"
-#include "scena.h"
-#include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
 
-//char **pars_data(char *name, t_scena *scena);
+int	ft_strlen(const char *str)
+{
+	int	i;
 
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
-
-#endif
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}

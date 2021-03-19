@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:54:08 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/13 21:22:42 by qdong             #+#    #+#             */
+/*   Updated: 2021/03/08 16:22:44 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "mlx.h"
-#include "vector.h"
-#include "utils.h"
-#include "camera.h"
-#include "scena.h"
-#include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
 
-//char **pars_data(char *name, t_scena *scena);
+int	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
 
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
-
-#endif
+	if (!new)
+		return (0);
+	if (!*lst)
+	{
+		*lst = new;
+		new->next = NULL;
+	}
+	if (lst && *lst)
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+		new->next = NULL;
+	}
+	return (1);
+}

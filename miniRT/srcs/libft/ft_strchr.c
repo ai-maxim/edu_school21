@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:54:08 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/02 22:20:00 by qdong             #+#    #+#             */
+/*   Updated: 2020/11/06 22:14:07 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "mlx.h"
-#include "vector.h"
-#include "utils.h"
-#include "camera.h"
-#include "scena.h"
-#include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
 
-//char **pars_data(char *name, t_scena *scena);
+char	*ft_strchr(const char *s, int c)
+{
+	int		i;
+	char	*tmp;
 
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
-
-#endif
+	tmp = (char *)s;
+	i = 0;
+	while (tmp[i] != c && tmp[i] != '\0')
+		i++;
+	if (tmp[i] == c)
+		return (&tmp[i]);
+	return (NULL);
+}

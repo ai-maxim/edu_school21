@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:54:08 by qdong            ###   ########.fr       */
+/*   Created: 2020/11/05 19:00:10 by qdong             #+#    #+#             */
+/*   Updated: 2021/03/07 15:46:20 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "mlx.h"
-#include "vector.h"
-#include "utils.h"
-#include "camera.h"
-#include "scena.h"
-#include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
 
-//char **pars_data(char *name, t_scena *scena);
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	char	*s3;
+	int		i;
+	int		j;
 
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
-
-#endif
+	if (!s1 || !s2)
+		return (NULL);
+	if ((s3 = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		s3[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		s3[i] = s2[j];
+		j++;
+		i++;
+	}
+	s3[i] = '\0';
+	return (s3);
+}
