@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 14:53:25 by qdong             #+#    #+#              #
-#    Updated: 2021/03/19 20:28:42 by qdong            ###   ########.fr        #
+#    Updated: 2021/03/20 20:40:43 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,15 @@ DIR_SRCS	= ./srcs/
 SRC			= 	utils/error_exit.c 	\
 				math/vector.c \
 				scena/camera.c scena/scena.c \
-				figures/sfera.c figures/plane.c figures/cylinder.c \
+				figures/sfera.c \
+				figures/plane.c \
+				figures/cylinder.c \
 				figures/square.c \
 				ray_tracing/traice_ray.c \
+				intersections/intersect.c \
 				intersections/sfera_intersect.c  \
 				intersections/plane_intersect.c \
-				intersections/cylinder_intersect.c \
+				intersections/cy_intersect.c \
 				intersections/sq_intersect.c \
 				main.c \
 				libft/ft_strlen.c libft/ft_substr.c libft/ft_split.c \

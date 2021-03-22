@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:11 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/19 17:23:27 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/21 15:54:46 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ t_general	*new_cylinder(t_vec center, t_vec direction, float radius,
 	cylinder->height = height;
 //	cylinder->color = color;
 	cylinder->type = 'c';
+//	printf("Cyl created, type = %c\n", cylinder->type);
 	return (cylinder);
 }

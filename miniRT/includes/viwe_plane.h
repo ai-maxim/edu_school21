@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:04 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 15:51:46 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/21 17:13:42 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ typedef struct s_vplane
 
 }				t_vplane;
 
-t_vplane	*get_vian_plane(float wedht, float height, float fov);
-int			sfera_intersect(t_camera *cam, t_vec ray, t_general *sfera);
-int 		plane_intersect(t_camera *cam, t_vec ray, t_general *plane);
-int			cylinder_intersect(t_camera *cam, t_vec ray, t_general *cylinder);
-int			tr_intersect(t_camera *cam, t_vec ray, t_general *triangle);
-void 		ray_tracing(void *mlx , void *window, t_scena *scena);
-
+t_vplane		*get_vian_plane(float wedht, float height, float fov);
+double			intersect(t_ray ray, t_general *objects);
+double			sfera_intersect(t_ray ray, t_general *sfera);
+double 			plane_intersect(t_ray ray, t_general *plane);
+double			cy_intersect(t_ray ray, t_general *cylinder);
+double			sq_intersect(t_ray ray, t_general *square);
+double			tr_intersect(t_ray ray, t_general *triangle);
+void 			ray_tracing(void *mlx , void *window, t_scena *scena);
 #endif
 

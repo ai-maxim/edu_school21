@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:02:15 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/19 16:42:06 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/21 13:43:56 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ float	lingth_vec(t_vec vec)
 	return (result);
 }
 
-void	normalize_vec(t_vec vec)
+t_vec	normalize_vec(t_vec vec)
 {
 	float	lingth;
 
@@ -46,6 +46,8 @@ void	normalize_vec(t_vec vec)
 	vec.x /= lingth;
 	vec.y /= lingth;
 	vec.z /= lingth;
+
+	return (vec);
 }
 
 // func scalyr proizvedenie too vectors

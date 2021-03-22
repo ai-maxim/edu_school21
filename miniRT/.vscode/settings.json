@@ -12,6 +12,8 @@
 		"memory": "c",
 		"ratio": "c",
 		"tuple": "c",
-		"utility": "c"
+		"utility": "c",
+		"__locale": "c",
+		"minirt.h": "c"
 	}
 }

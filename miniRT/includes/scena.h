@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:36 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/19 20:25:08 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/21 18:08:30 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,31 @@
 
 typedef struct	s_general
 {
-	t_vec		center; // центр фигур
-	t_vec		direction; // направление фигуры
-	t_vec		normal; // направление по умолчанию по оси z
-	t_vec		origin;
-	float		fov; //ugol obzora
-	float		radius;
-	float		height;
-	float		side_size;
-	int			color;
-	t_vec		c;
-	t_vec		c1;
-	t_vec		c2;
-	char 		type;
-}				t_general;
+	void				*content;
+	struct s_general	*next;
+	t_vec			center; // центр фигур
+	t_vec			direction; // направление фигуры
+	t_vec			normal; // направление по умолчанию по оси z
+	t_vec			origin;
+	float			fov; //ugol obzora
+	float			radius;
+	float			height;
+	float			side_size;
+	int				color;
+	t_vec			c;
+	t_vec			c1;
+	t_vec			c2;
+	char 			type;
+}					t_general;
 
 typedef struct	s_ray
 {
 	t_vec		origin;
 	t_vec		direction;
-	float		fov;
-	float		x;
-	float		y;
-	float		z;
+	t_vec		origin_inter; //  для света
+	t_vec		direction_inter; //  для света
+	
+	char		type;
 }				t_ray;
 
 typedef struct	s_light
@@ -121,8 +123,17 @@ typedef struct	s_tr
 	int			color;
 }				t_tr;
 
+typedef struct	s_matrix
+{
+	float x;
+	float y;
+	float z;
+}				t_matrix;
+
 typedef struct s_scena
 {
+	void				*content;
+	struct s_scena		*next;
 	t_camera	*cams;
 	t_general	*objects;
 	t_cam		camera;

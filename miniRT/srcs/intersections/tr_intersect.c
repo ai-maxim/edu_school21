@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 11:34:48 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/15 17:24:02 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/21 17:16:16 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int			tr_intersect(t_general *cam, t_vec ray, t_general *triangle)
+double			tr_intersect(t_ray ray, t_general *triangle)
 {
 	float	t;
 	t_vec	cam_tr;
