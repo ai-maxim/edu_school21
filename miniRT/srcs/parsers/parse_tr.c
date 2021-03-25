@@ -6,43 +6,73 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:26:49 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 15:16:47 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/25 00:23:15 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void		parse_tr(char *line, t_scena scena)
+void			parse_tr(char *line, t_scena *scena)
 {
-	char	**array;
-	char	**cordinate;
-	char	**cordinate2;
-	char	**cordinate3;
+	t_pars_per	p;
+	t_objs		*tmp;
+	t_objs		*tr;
+	t_tr		*new_tr;
+	t_vec		**color;
 
-	array = ft_split(line + 1, ' ');
-	cordinate = ft_split(array[0], ',');
-	scena.tr.x_c = atof(cordinate[0]);
-	scena.tr.y_c = atof(cordinate[1]);
-	scena.tr.z_c = atof(cordinate[2]);
-	cordinate2 = ft_split(array[1], ',');
-	scena.tr.x_c2 = atof(cordinate2[0]);
-	scena.tr.y_c2 = atof(cordinate2[1]);
-	scena.tr.z_c2 = atof(cordinate2[2]);
-	cordinate3 = ft_split(array[2], ',');
-	scena.tr.x_c3 = atof(cordinate3[0]);
-	scena.tr.y_c3 = atof(cordinate3[1]);
-	scena.tr.z_c3 = atof(cordinate3[2]);
-	scena.tr.color = colors(array[3], scena);
+	tmp = scena->objs;
+	new_tr = malloc(sizeof(t_tr));
+	tr = malloc(sizeof(t_objs));
+	p.arr = ft_split(line + 1, ' ');
+	p.arr1 = ft_split(p.arr[0], ',');
+	new_tr->c1 = get_coordinate(p.arr1);
+	// new_tr->c1.x = ft_atof(cordinate[0]);
+	// new_tr->c1.y = ft_atof(cordinate[1]);
+	// new_tr->c1.z = ft_atof(cordinate[2]);
+	p.arr2 = ft_split(p.arr[1], ',');
+	new_tr->c2 = get_coordinate(p.arr2);
 
-	printf("|tr|scena.tr.c: %f|\n", scena.tr.x_c);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.y_c);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.z_c);
-	printf("|tr|scena.tr.c: %f|\n", scena.tr.x_c2);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.y_c2);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.z_c2);
-	printf("|tr|scena.tr.c: %f|\n", scena.tr.x_c3);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.y_c3);
-	printf("|tr|scena.tr.c2: %f|\n", scena.tr.z_c3);
-	printf("|tr|color: %d|\n", scena.tr.color);
-	printf("\n");
+	// new_tr->c2.x = ft_atof(cordinate2[0]);
+	// new_tr->c2.y = ft_atof(cordinate2[1]);
+	// new_tr->c2.z = ft_atof(cordinate2[2]);
+	p.arr3 = ft_split(p.arr[2], ',');
+	new_tr->c3 = get_coordinate(p.arr3);
+	// new_tr->c3.x = ft_atof(cordinate3[0]);
+	// new_tr->c3.y = ft_atof(cordinate3[1]);
+	// new_tr->c3.z = ft_atof(cordinate3[2]);
+	p.arr4 = ft_split(p.arr[3], ',');
+	new_tr->color = get_color(p.arr4);
+	// new_tr->color.r = colors(color[0], *scena);
+	// new_tr->color.g = colors(color[1], *scena);
+	// new_tr->color.b = colors(color[2], *scena);
+	tr->data = new_tr;
+	tr->type = 't';
+	// tr->intersect_funct = &sp_intersect;
+	tr->next = NULL;
+	if (!tmp)
+		scena->objs = tr;
+	else
+	{
+		while (tmp)
+		{
+			if (tmp->next == NULL)
+				break;
+			tmp = tmp->next;
+		}
+		tmp->next = tr;
+	}
+
+	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1.x);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c1.y);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c1.z);
+
+	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c2);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c3);
+
+	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c2);
+	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c3);
+	// printf("|tr|color: %d|\n", new_tr->color);
+	// printf("\n");
 }

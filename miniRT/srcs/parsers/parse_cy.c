@@ -6,38 +6,67 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:14:21 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 15:03:36 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/25 00:29:53 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void		parse_cy(char *line, t_scena scena)
+void			parse_cy(char *line, t_scena *scena)
 {
-	char	**array;
-	char	**cordinate;
-	char	**cordinate2;
+	t_pars_per	p;
+	t_objs		*tmp;
+	t_objs		*cy;
+	t_cy		*new_cy;
+	t_vec		**color;
 
-	printf("%s", line);
-	array = ft_split(line + 1, ' ');
-	cordinate = ft_split(array[0], ',');
-	scena.cy.center.x = atof(cordinate[0]);
-	scena.cy.center.y = atof(cordinate[1]);
-	scena.cy.center.z = atof(cordinate[2]);
-	cordinate2 = ft_split(array[1], ',');
-	scena.cy.direction.x = atof(cordinate2[0]);
-	scena.cy.direction.x = atof(cordinate2[1]);
-	scena.cy.direction.z = atof(cordinate2[2]);
-	scena.cy.radius = atof(array[2]);
-	scena.cy.height = atof(array[3]);
-	scena.cy.color = colors(array[4], scena);
-	printf("|scena.cy.center|x|: %f|\n", scena.cy.center.x);
-	printf("|scena.cy.center|y|: %f|\n", scena.cy.center.y);
-	printf("|scena.cy.center|z|: %f|\n", scena.cy.center.z);
-	printf("|scena.cy.direction.x: %f|\n", scena.cy.direction.x);
-	printf("|scena.cy.direction.y: %f|\n", scena.cy.direction.y);
-	printf("|scena.cy.direction.z: %f|\n", scena.cy.direction.z);
-	printf("|scena.cy.radius: %f|\n", scena.cy.radius);
-	printf("|scena.cy.height: %f|\n", scena.cy.height);
-	printf("|color: %d|\n", scena.cy.color);
+	tmp = scena->objs;
+	new_cy = malloc(sizeof(t_cy));
+	cy = malloc(sizeof(t_objs));
+	p.arr = ft_split(line + 1, ' ');
+	p.arr1 = ft_split(p.arr[0], ',');
+	new_cy->center = get_coordinate(p.arr1);
+	// new_cy->center.x = ft_atof(cordinate[0]);
+	// new_cy->center.y = ft_atof(cordinate[1]);
+	// new_cy->center.z = ft_atof(cordinate[2]);
+	p.arr2 = ft_split(p.arr[1], ',');
+	new_cy->dir = get_coordinate(p.arr2);
+	// new_cy->dir.x = ft_atof(cordinate2[0]);
+	// new_cy->dir.y = ft_atof(cordinate2[1]);
+	// new_cy->dir.z = ft_atof(cordinate2[2]);
+	new_cy->diam = ft_atof(p.arr[2]);
+	new_cy->height = ft_atof(p.arr[3]);
+	p.arr3 = ft_split(p.arr[4], ',');
+	new_cy->color = get_color(p.arr3);
+	// new_cy->color.r = ft_atoi(color[0]);
+	// new_cy->color.g = ft_atoi(color[1]);
+	// new_cy->color.b = ft_atoi(color[2]);
+	cy->data = new_cy;
+	cy->type = 'c';
+	// cy->intersect_funct = &cy_intersect;
+	cy->next = NULL;
+	if (!tmp)
+		scena->objs = cy;
+	else
+	{
+		while (tmp)
+		{
+			if (tmp->next == NULL)
+				break;
+			tmp = tmp->next;
+		}
+		tmp->next = cy;
+	}
+
+	// printf("|new_cy->center: %f|\n", new_cy->center.x);
+	// printf("|new_cy->center %f|\n", new_cy->center.y);
+	// printf("|new_cy->center: %f|\n", new_cy->center.z);
+	// printf("|new_cy->dir.x: %f|\n", new_cy->dir.x);
+	// printf("|new_cy->dir.y: %f|\n", new_cy->dir.y);
+	// printf("|new_cy->dir.z: %f|\n", new_cy->dir.z);
+	// printf("|new_cy->diam: %f|\n", new_cy->diam);
+	// printf("|new_cy->dirf|\n", new_cy->height);
+	// printf("|color->r: %d|\n", new_cy->color.r);
+	// printf("|color->g: %d|\n", new_cy->color.g);
+	// printf("|color->b: %d|\n", new_cy->color.b);
 }

@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:04 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/21 17:13:42 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/24 18:55:48 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // структура окна просмотра
 typedef struct s_vplane
 {
-		float	widht;
-		float	height;
-		float	x_pixel;
-		float	y_pixel;
+		double	widht;
+		double	height;
+		double	x_pixel;
+		double	y_pixel;
 
 }				t_vplane;
 
-t_vplane		*get_vian_plane(float wedht, float height, float fov);
-double			intersect(t_ray ray, t_general *objects);
-double			sfera_intersect(t_ray ray, t_general *sfera);
-double 			plane_intersect(t_ray ray, t_general *plane);
-double			cy_intersect(t_ray ray, t_general *cylinder);
-double			sq_intersect(t_ray ray, t_general *square);
-double			tr_intersect(t_ray ray, t_general *triangle);
+t_vplane		*get_vian_plane(double wedht, double height, double fov);
+t_objs			*intersect(t_ray ray, t_list *objects, double min, double max);
+void			sp_intersect(t_ray ray, t_objs *sp, double *t);
+void 			pl_intersect(t_ray ray, t_objs *pl, double *t);
+double			cy_intersect(t_ray ray, t_objs *cy, double *t);
+double			sq_intersect(t_ray ray, t_objs *sq, double *t);
+void			tr_intersect(t_ray ray, t_ray direction, t_vec v0, t_vec v1, t_vec v2, double *t);
 void 			ray_tracing(void *mlx , void *window, t_scena *scena);
-#endif
 
+#endif

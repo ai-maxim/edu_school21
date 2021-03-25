@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:55:57 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/17 13:56:43 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/24 15:11:35 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 typedef struct s_camera
 {
-	t_vec		origin;
-	t_vec		derection; // направление по умолчанию по оси z
-	float		fov; //ugol obzora
+	t_vec		orig;
+	t_vec		dir; // направление по умолчанию по оси z
+	double		fov; //ugol obzora
+	struct s_camera	*next;
+	struct s_camera	*prev;
 }				t_camera;
 
- t_camera *new_camera(t_vec origin, t_vec derection, float fov);
+t_camera		*new_camera(t_vec origin, t_vec derection, double fov);
 
 #endif

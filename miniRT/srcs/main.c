@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:06 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/22 11:26:46 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/25 11:45:39 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,51 +29,22 @@ int				close_w(int	keycode, t_params	*vars)
 
 int				main(int argc, char **argv)
 {
+	t_scena 	*scena;
 	t_params	params;
-	// char 		*out = argv[1];
-	// t_general	data;
-	// t_scena 	scena;
 
-	// if (argc > 1)
-	// 	error_exit(1);
-	// pars_data(&data, scena);
-
+	if (!(argc >= 2 && argc <= 3))
+		error_exit(1);
+	else
+	{
+		scena = malloc(sizeof(t_scena));
+		pars_data(argv[1], scena);
+	}
 	params.mlx = mlx_init();
 
-	t_vec		plane_center = new_vector(0, 1, 0);
-	t_general	*plane = new_plane(plane_center, new_vector(1.0, 4.0, 0));
-
-	t_vec		cylinder_center = new_vector(0.0, 0.0, 0);
-	t_vec		cy_direction = new_vector(0.0, 1.0, 0.0);
-	t_general	*cylinder = new_cylinder(cylinder_center, cy_direction, 7.1, 21.42);
-
-	t_vec		sfera_center = new_vector(0, 0, 4);
-	t_general 	*sfera = new_sfera(sfera_center, 12/2);
-
-	// t_vec		tr_center = new_vector(0, 0, 1);
-	// t_vec		c = new_vector(10, 20, 10);
-	// t_vec		c = new_vector(scena , 20, 10);
-	// t_vec		c1 = new_vector(10, 10, 20);
-	// t_vec		c2 = new_vector(20, 10, 10);
-	// t_general	*triangle = new_triangle(0.0, 1.0, 0.0);
-
-	// t_vec		sq_center = new_vector(0, 100, 40);
-	// t_general	*square = new_square(sq_center, new_vector(0, 1.0, 0), 30);
-
-	t_vec		cam_origen = new_vector(0, 0, -10);
-	t_vec		cam_derection= new_vector(0, 0, 1);
-	t_camera	*cam = new_camera(cam_origen, cam_derection, 70);
-	// t_scena		*scena = new_scena(cam, scena->objects);
-	t_scena		*scena = new_scena(cam, cylinder);
-	// printf("\n 444 %f", scena->cams->origin.z);
-	scena->widht = 500;
-	scena->height = 600;
-//	printf("\nflag - %d %d\n", scena->height, scena->widht);
 	params.win = mlx_new_window(params.mlx, scena->widht, scena->height, "TEST");
 	mlx_hook(params.win, 17, 0L, close_window, &params);
 	mlx_hook(params.win, 2, 1L<<0, close_w, &params);
-	ray_tracing(params.mlx, params.win, scena);
+	ray_tracing(params.mlx, params.win, &scena);
 	//free_scena(scena)  освобождает сцену и все что в ней есть
 	mlx_loop(params.mlx);
-	return (0);
 }

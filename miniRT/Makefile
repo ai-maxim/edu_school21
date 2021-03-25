@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 14:53:25 by qdong             #+#    #+#              #
-#    Updated: 2021/03/20 20:40:43 by qdong            ###   ########.fr        #
+#    Updated: 2021/03/25 00:22:38 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,32 +14,20 @@ DIR_HEADER	= ./includes/
 
 DIR_SRCS	= ./srcs/
 
-SRC			= 	utils/error_exit.c 	\
+SRC			= 	utils/error_exit.c \
 				math/vector.c \
-				scena/camera.c scena/scena.c \
-				figures/sfera.c \
-				figures/plane.c \
-				figures/cylinder.c \
-				figures/square.c \
-				ray_tracing/traice_ray.c \
-				intersections/intersect.c \
-				intersections/sfera_intersect.c  \
-				intersections/plane_intersect.c \
-				intersections/cy_intersect.c \
-				intersections/sq_intersect.c \
 				main.c \
 				libft/ft_strlen.c libft/ft_substr.c libft/ft_split.c \
 				libft/get_next_line.c libft/get_next_line_utils.c \
 				libft/ft_strjoin.c libft/ft_strncmp.c \
 				libft/ft_lstadd_back.c libft/ft_strchr.c \
 				libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_lstlast.c \
-				libft/ft_atoi.c libft/ft_atof.c \
+				libft/ft_atoi.c libft/ft_atof.c libft/ft_bzero.c\
 				parsers/pars_data.c parsers/parse_r.c \
 				parsers/parse_a.c parsers/parse_c.c \
 				parsers/parse_l.c parsers/parse_pl.c \
-				parsers/colors.c parsers/parse_sp.c \
-				parsers/parse_sq.c parsers/parse_cy.c \
-				parsers/parse_tr.c
+				parsers/parse_sp.c parsers/parse_sq.c \
+				parsers/parse_cy.c parsers/parse_tr.c \
 
 SRCS		= $(addprefix $(DIR_SRCS), $(SRC))
 
@@ -74,3 +62,13 @@ fclean:		clean
 re:				fclean all
 
 .PHONY:		all clean fclean re
+
+
+				# ray_tracing/traice_ray.c \
+				# intersections/intersect.c \
+				# intersections/sp_intersect.c  \
+				# intersections/pl_intersect.c \
+				# intersections/cy_intersect.c \
+				# intersections/sq_intersect.c \
+				# intersections/tr_intersect.c \
+

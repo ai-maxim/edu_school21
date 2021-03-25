@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:02:15 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/21 13:43:56 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/23 17:00:09 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_vec	new_vector(float x, float y, float z)
+t_vec	new_vector(double x, double y, double z)
 {
 	t_vec	vec;
 
@@ -30,9 +30,9 @@ t_vec	substract_vec(t_vec vec1, t_vec vec2)
 	return (result);
 }
 
-float	lingth_vec(t_vec vec)
+double	lingth_vec(t_vec vec)
 {
-	float result;
+	double result;
 
 	result = sqrt((vec.x * vec.x) + (vec.y * vec.y) + (vec.z * vec.z));
 	return (result);
@@ -40,7 +40,7 @@ float	lingth_vec(t_vec vec)
 
 t_vec	normalize_vec(t_vec vec)
 {
-	float	lingth;
+	double	lingth;
 
 	lingth = lingth_vec(vec);
 	vec.x /= lingth;
@@ -50,16 +50,16 @@ t_vec	normalize_vec(t_vec vec)
 	return (vec);
 }
 
-// func scalyr proizvedenie too vectors
-float	dot_product_vec(t_vec vec1, t_vec vec2)
+// func scalyr proizvedenie too vectors dot_product_vec
+double	dpv(t_vec vec1, t_vec vec2)
 {
-	float result;
+	double result;
 
 	result = ((vec1.x * vec2.x) + (vec1.y * vec2.y) + (vec1.z * vec2.z));
 	return (result);
 }
 
-t_vec		multiply_vec_num(t_vec vec, float number)
+t_vec		multip_vn(t_vec vec, double number)
 {
 	t_vec	result;
 

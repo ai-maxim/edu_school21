@@ -6,178 +6,140 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:36 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/21 18:08:30 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/25 00:17:47 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENA_H
 # define SCENA_H
-#include "minirt.h"
+# include "libft.h"
+# include "minirt.h"
 
-typedef struct	s_general
+
+typedef	struct	s_color
 {
-	void				*content;
-	struct s_general	*next;
-	t_vec			center; // центр фигур
-	t_vec			direction; // направление фигуры
-	t_vec			normal; // направление по умолчанию по оси z
-	t_vec			origin;
-	float			fov; //ugol obzora
-	float			radius;
-	float			height;
-	float			side_size;
-	int				color;
-	t_vec			c;
-	t_vec			c1;
-	t_vec			c2;
-	char 			type;
-}					t_general;
+	int	r;
+	int	g;
+	int	b;
+}				t_color;
+
+typedef struct	s_closest
+{
+	double	t;
+	t_vec	dot_inter;
+	t_color	obj_col;
+}				t_closest;
+
+typedef struct	s_objs
+
+{
+	t_closest	(*intersect_funct)(t_vec *origin,t_vec *direction, void *data, double lim[2]);
+	void		*data;
+	void		*next;
+	char		type;
+}				t_objs;
 
 typedef struct	s_ray
 {
-	t_vec		origin;
-	t_vec		direction;
-	t_vec		origin_inter; //  для света
-	t_vec		direction_inter; //  для света
-	
+	t_vec	origin;
+	t_vec	direction;
+	t_vec	origin_inter; //  для света
+	t_vec	direction_inter; //  для света
 	char		type;
 }				t_ray;
 
+
 typedef struct	s_light
 {
-	float		x;
-	float		y;
-	float		z;
-	float		brightness;
-	int			color;
+	t_vec			l_dot;
+	double			brightness;
+	t_color			color;
+	struct s_light	*next;
 }				t_light;
-
-typedef struct	s_cam
-{
-	t_vec		origin;
-	t_vec		direction;
-	float		fov;
-	float		x;
-	float		y;
-	float		z;
-	int			color;
-}				t_cam;
 
 typedef struct	s_pl
 {
 	t_vec		center;
 	t_vec		normal;
-	float		x;
-	float		y;
-	float		z;
-	int			color;
+	t_color		color;
 }				t_pl;
 
 typedef struct	s_sp
 {
 	t_vec		center;
-	float		radius;
-	float		x;
-	float		y;
-	float		z;
-	int			color;
+	double		diam;
+	t_color		color;
 }				t_sp;
 
 typedef struct	s_sq
 {
 	t_vec		center;
 	t_vec		normal;
-	float		side_size;
-	float		x;
-	float		y;
-	float		z;
-	int			color;
+	double		side_size;
+	t_color		color;
 }				t_sq;
 
 typedef struct	s_cy
 {
 	t_vec		center;
-	t_vec		direction;
-	float		radius;
-	float		height;
-	float		x;
-	float		y;
-	float		z;
-	int			color;
+	t_vec		dir;
+	double		diam;
+	double		height;
+	t_color		color;
 }				t_cy;
 
 typedef struct	s_tr
 {
-	t_vec		c;
+	t_vec		c1;
 	t_vec		c2;
 	t_vec		c3;
-	float		x_c;
-	float		y_c;
-	float		z_c;
-	float		x_c2;
-	float		y_c2;
-	float		z_c2;
-	float		x_c3;
-	float		y_c3;
-	float		z_c3;
-	int			color;
+	t_color		color;
 }				t_tr;
 
-typedef struct	s_matrix
+typedef struct	s_perem
 {
-	float x;
-	float y;
-	float z;
-}				t_matrix;
+	t_vec		v1v0;
+	t_vec		v2v0;
+	t_vec		rov0;
+	t_vec		n;
+	t_vec		q;
+	double		d;
+	double		u;
+	double		v;
+	double		t;
+} 				t_perem;
 
-typedef struct s_scena
+typedef struct	s_pars_per
 {
-	void				*content;
-	struct s_scena		*next;
+	char		**arr;
+	char		**arr1;
+	char		**arr2;
+	char		**arr3;
+	char		**arr4;
+}				t_pars_per;
+
+typedef struct		s_scena
+{
 	t_camera	*cams;
-	t_general	*objects;
-	t_cam		camera;
-	t_light		light;
-	t_pl		pl;
-	t_sp		sp;
-	t_sq		sq;
-	t_cy		cy;
-	t_tr		tr;
-	float		center;
-	float		normal;
-	int			radius;
+	t_light		*light;
 	int			widht;	// ширина окна
 	int			height;	//высота окна
-	float		origin;
-	int			direction;
-	float		fov;
-	float		side_size;
-	float		brightness; //яркость
-	// t_vec		c;
-	// t_vec		c1;
-	// t_vec		c2;
-	int			color;
-	char		type;
+	double		brightness; //яркость ambient light
+	t_color		color; // ambien light
+	t_objs		*objs;
 }				t_scena;
 
-t_scena			*new_scena(t_camera *cams, t_general *object);
-t_general		*new_sfera(t_vec center, float radius);
-t_general		*new_plane(t_vec center, t_vec normal);
-t_general		*new_cylinder(t_vec center, t_vec direction, float radius, float height);
-t_general 		*new_square(t_vec center, t_vec normal, float side_size);
-t_general		*new_triangle(t_vec c, t_vec c1, t_vec c2, int color);
-t_camera		*new_camera(t_vec origin, t_vec direction, float fov);
-int				colors(char *num, t_scena scena);
-//int				nums(char *num, t_scena scena);
-void			*pars_data(t_general *name, t_scena scena);
-void			parse_r(char *line, t_scena scena);
-void			parse_a(char *line, t_scena scena);
-void			parse_c(char *line, t_scena scena);
-void			parse_l(char *line, t_scena scena);
-void			parse_pl(char *line, t_scena scena);
-void			parse_sp(char *line, t_scena scena);
-void			parse_sq(char *line, t_scena scena);
-void			parse_cy(char *line, t_scena scena);
-void			parse_tr(char *line, t_scena scena);
+t_vec			get_coordinate(char **str);
+t_color			get_color(char **str);
+void			pars_data(char *rt, t_scena *scena);
+void			parse_r(char *line, t_scena *scena);
+void			parse_a(char *line, t_scena *scena);
+void			parse_c(char *line, t_scena *scena);
+void			parse_pl(char *line, t_scena *scena);
+void			parse_l(char *line, t_scena *scena);
+void			parse_sp(char *line, t_scena *scena);
+void			parse_sq(char *line, t_scena *scena);
+void			parse_cy(char *line, t_scena *scena);
+void			parse_tr(char *line, t_scena *scena);
 
 #endif

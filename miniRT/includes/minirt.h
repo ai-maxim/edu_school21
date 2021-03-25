@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/21 11:50:29 by qdong            ###   ########.fr       */
+/*   Updated: 2021/03/22 20:20:30 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@
 #include "viwe_plane.h"
 #include "params.h"
 #include "libft.h"
-
-//char **pars_data(char *name, t_scena *scena);
-
-// typedef struct		s_data
-// {
-// 	char **data;
-// }					t_data;
+#define MAX_DIST 1000000
 
 #endif

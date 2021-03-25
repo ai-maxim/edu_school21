@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sfera.c                                            :+:      :+:    :+:   */
+/*   pl_intersect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 16:57:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/21 20:18:49 by qdong            ###   ########.fr       */
+/*   Created: 2021/03/09 16:02:11 by qdong             #+#    #+#             */
+/*   Updated: 2021/03/23 15:03:57 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_general		*new_sfera(t_vec center, float radius)
+void		pl_intersect(t_ray ray, t_objects *pl, double *t)
 {
-	t_general	*sfera;
+	double	a;
+	double	b;
+	t_vec	cam_pl;
 
-	sfera = malloc(sizeof(t_general));
-	if (!sfera)
-		error_exit(-1);
-	sfera->center = center;
-	sfera->radius = radius;
-//	sfera->color = color;
-	sfera->type = 's';
-	sfera->next = NULL;
-	return (sfera);
+	cam_pl = substract_vec(pl->center, ray.origin);
+	a = dpv(cam_pl, pl->normal);
+	b = dpv(ray.direction, pl->normal);
+	// if (b == 0)
+	// 	return (-1);
+	t[0] = a / b;
+	t[1] = MAX_DIST;
 }
