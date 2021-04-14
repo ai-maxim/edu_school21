@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 17:33:36 by aarlena           #+#    #+#             */
-/*   Updated: 2021/03/17 13:35:22 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/09 13:11:35 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check_nonprintable(char str)
+int	check_nonprintable(char str)
 {
 	char	nonprintable[6];
 	int		i;
@@ -33,7 +33,7 @@ int		check_nonprintable(char str)
 	return (0);
 }
 
-int		ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	long	nbr;
 	long	sign;
@@ -42,7 +42,6 @@ int		ft_atoi(char *str)
 	nbr = 0;
 	sign = 1;
 	i = 0;
-
 	while (check_nonprintable(str[i]))
 		i++;
 	if ((str[i] == '-') || (str[i] == '+'))

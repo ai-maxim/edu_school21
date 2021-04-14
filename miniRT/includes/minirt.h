@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/22 20:20:30 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/10 17:17:27 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,13 @@
 #include "camera.h"
 #include "scena.h"
 #include "viwe_plane.h"
-#include "params.h"
 #include "libft.h"
-#define MAX_DIST 1000000
+# define MAX_DIST 1000000
+
+# define ERR1 "ERROR: memory allocation error\n"
+# define ERR2 "ERROR: Operation file corrupted\n"
+# define ERR3 "ERROR: invalid maps value\n"
+# define ERR4 "ERROR: invalid file value\n"
+# define ERR5 "ERROR: invalid color\n"
 
 #endif

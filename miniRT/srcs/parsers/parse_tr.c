@@ -6,49 +6,14 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:26:49 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/25 00:23:15 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/14 16:40:23 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void			parse_tr(char *line, t_scena *scena)
+void	parse_tr_0(t_objs	*tmp, t_objs *tr, t_scena *scena)
 {
-	t_pars_per	p;
-	t_objs		*tmp;
-	t_objs		*tr;
-	t_tr		*new_tr;
-	t_vec		**color;
-
-	tmp = scena->objs;
-	new_tr = malloc(sizeof(t_tr));
-	tr = malloc(sizeof(t_objs));
-	p.arr = ft_split(line + 1, ' ');
-	p.arr1 = ft_split(p.arr[0], ',');
-	new_tr->c1 = get_coordinate(p.arr1);
-	// new_tr->c1.x = ft_atof(cordinate[0]);
-	// new_tr->c1.y = ft_atof(cordinate[1]);
-	// new_tr->c1.z = ft_atof(cordinate[2]);
-	p.arr2 = ft_split(p.arr[1], ',');
-	new_tr->c2 = get_coordinate(p.arr2);
-
-	// new_tr->c2.x = ft_atof(cordinate2[0]);
-	// new_tr->c2.y = ft_atof(cordinate2[1]);
-	// new_tr->c2.z = ft_atof(cordinate2[2]);
-	p.arr3 = ft_split(p.arr[2], ',');
-	new_tr->c3 = get_coordinate(p.arr3);
-	// new_tr->c3.x = ft_atof(cordinate3[0]);
-	// new_tr->c3.y = ft_atof(cordinate3[1]);
-	// new_tr->c3.z = ft_atof(cordinate3[2]);
-	p.arr4 = ft_split(p.arr[3], ',');
-	new_tr->color = get_color(p.arr4);
-	// new_tr->color.r = colors(color[0], *scena);
-	// new_tr->color.g = colors(color[1], *scena);
-	// new_tr->color.b = colors(color[2], *scena);
-	tr->data = new_tr;
-	tr->type = 't';
-	// tr->intersect_funct = &sp_intersect;
-	tr->next = NULL;
 	if (!tmp)
 		scena->objs = tr;
 	else
@@ -56,23 +21,47 @@ void			parse_tr(char *line, t_scena *scena)
 		while (tmp)
 		{
 			if (tmp->next == NULL)
-				break;
+				break ;
 			tmp = tmp->next;
 		}
 		tmp->next = tr;
 	}
+}
 
-	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1.x);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c1.y);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c1.z);
+void	parse_tr(char *line, t_scena *scena)
+{
+	t_pars_per	p;
+	t_objs		*tmp;
+	t_objs		*tr;
+	t_tr		*new_tr;
 
-	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c2);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c3);
-
-	// printf("|tr|scena.tr.c: %f|\n", new_tr->c1);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c2);
-	// printf("|tr|scena.tr.c2: %f|\n", new_tr->c3);
-	// printf("|tr|color: %d|\n", new_tr->color);
-	// printf("\n");
+	tmp = scena->objs;
+	new_tr = malloc(sizeof(t_tr));
+	tr = malloc(sizeof(t_objs));
+	p.arr = ft_split(line + 1, ' ');
+	if (line[0] != ' ')
+		ft_exit("Error! With whitespace Triangle keys!\n");
+	if (!(p.arr[0] && p.arr[1] && p.arr[2] && p.arr[3]) || p.arr[4])
+		ft_exit("Error! No argument is tr!\n");
+	p.arr1 = ft_split(p.arr[0], ',');
+	if (!(p.arr1[0] && p.arr1[1] && p.arr1[2]) || p.arr1[3])
+		ft_exit("Error! No argument is c1 tr!\n");
+	new_tr->c1 = get_coordinate(p.arr1);
+	p.arr2 = ft_split(p.arr[1], ',');
+	if (!(p.arr2[0] && p.arr2[1] && p.arr2[2]) || p.arr2[3])
+		ft_exit("Error! No argument is c2 tr!\n");
+	new_tr->c2 = get_coordinate(p.arr2);
+	p.arr3 = ft_split(p.arr[2], ',');
+	if (!(p.arr3[0] && p.arr3[1] && p.arr3[2]) || p.arr3[3])
+		ft_exit("Error! No argument is c3 tr!\n");
+	new_tr->c3 = get_coordinate(p.arr3);
+	p.arr4 = ft_split(p.arr[3], ',');
+	if (!(p.arr4[0] && p.arr4[1] && p.arr4[2]) || p.arr4[3])
+		ft_exit("Error! No argument is color!\n");
+	new_tr->color = get_color(p.arr4);
+	tr->data = new_tr;
+	tr->type = 't';
+	tr->inter_funk = &tr_intersect;
+	tr->next = NULL;
+	parse_tr_0(tmp, tr, scena);
 }

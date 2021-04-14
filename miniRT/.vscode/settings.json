@@ -17,6 +17,8 @@
 		"minirt.h": "c",
 		"__split_buffer": "cpp",
 		"locale": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"algorithm": "c",
+		"sstream": "c"
 	}
 }

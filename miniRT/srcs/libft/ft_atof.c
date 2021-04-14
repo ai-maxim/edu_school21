@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 15:05:27 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/24 21:35:53 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/09 13:46:14 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double		ft_atof(char *str)
+double	ft_atof(char *str)
 {
 	double	int_point;
 	double	float_point;
@@ -41,14 +41,3 @@ double		ft_atof(char *str)
 		return (result_negative);
 	return (result);
 }
-
-
-
-// int main()
-// {
-// 	char	*ptr = "21.01";
-
-// 	printf("%.2f\n", ft_atof(ptr));
-// 	printf("%f\n", fabs(-15.0));
-// 	return (0);
-// }

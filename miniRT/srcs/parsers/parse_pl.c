@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 13:36:13 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/24 23:31:57 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/11 18:24:40 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_vec			get_coordinate(char **str)
+t_vec	get_coordinate(char **str)
 {
 	t_vec		tmp;
 
@@ -22,17 +22,39 @@ t_vec			get_coordinate(char **str)
 	return (tmp);
 }
 
-t_color			get_color(char **str)
+t_color	get_color(char **str)
 {
 	t_color		tmp;
 
+	if (!(str[0] && str[1] && str[2]) || str[3])
+		ft_exit("Error! No argument is color!\n");
 	tmp.r = ft_atoi(str[0]);
 	tmp.g = ft_atoi(str[1]);
 	tmp.b = ft_atoi(str[2]);
+	if ((tmp.r < 0 || tmp.r > 255)
+		|| (tmp.g < 0 || tmp.g > 255)
+		|| (tmp.b < 0 || tmp.b > 255))
+		ft_exit("Error! With colors!\n");
 	return (tmp);
 }
 
-void			parse_pl(char *line, t_scena *scena)
+void	parse_pl_0(t_objs	*tmp, t_objs *pl, t_scena *scena)
+{
+	if (!tmp)
+		scena->objs = pl;
+	else
+	{
+		while (tmp)
+		{
+			if (tmp->next == NULL)
+				break ;
+			tmp = tmp->next;
+		}
+		tmp->next = pl;
+	}
+}
+
+void	parse_pl(char *line, t_scena *scena)
 {
 	t_objs		*tmp;
 	t_objs		*pl;
@@ -43,37 +65,24 @@ void			parse_pl(char *line, t_scena *scena)
 	new_pl = malloc(sizeof(t_pl));
 	pl = malloc(sizeof(t_objs));
 	p.arr = ft_split(line + 1, ' ');
+	if (line[0] != ' ')
+		ft_exit("Error! With whitespace Plane keys!\n");
 	p.arr1 = ft_split(p.arr[0], ',');
+	if (!(p.arr1[0] && p.arr1[1] && p.arr1[2]) || p.arr1[3])
+		ft_exit("Error! With Plane keys!\n");
 	new_pl->center = get_coordinate(p.arr1);
-	// new_pl->center.x = ft_atoi(cordinate[0]);
-	// new_pl->center.y = ft_atoi(cordinate[1]);
-	// new_pl->center.z = ft_atoi(cordinate[2]);
 	p.arr2 = ft_split(p.arr[1], ',');
+	if (!(p.arr2[0] && p.arr2[1] && p.arr2[2]) || p.arr2[3])
+		ft_exit("Error! With Square keys!\n");
 	new_pl->normal = get_coordinate(p.arr2);
-	// new_pl->normal.x = atof(cordinate2[0]);
-	// new_pl->normal.y = atof(cordinate2[1]);
-	// new_pl->normal.z = atof(cordinate2[2]);
 	p.arr3 = ft_split(p.arr[2], ',');
 	new_pl->color = get_color(p.arr3);
-	// new_pl->color.r = ft_atoi(color[0]);
-	// new_pl->color.g = ft_atoi(color[1]);
-	// new_pl->color.b = ft_atoi(color[2]);
 	pl->data = new_pl;
 	pl->type = 'p';
-	// pl->intersect_funct = &pl_intersect;
+	pl->inter_funk = &pl_intersect;
 	pl->next = NULL;
-	if (!tmp)
-		scena->objs = pl;
-	else
-	{
-		while (tmp)
-		{
-			if (tmp->next == NULL)
-				break;
-			tmp = tmp->next;
-		}
-		tmp->next = pl;
-	}
+	parse_pl_0(tmp, pl, scena);
+}
 
 	// printf("|plane|center|x: %f\n|", scena.pl.center.x);
 	// printf("|plane|center|y: %f\n|", scena.pl.center.y);
@@ -83,4 +92,3 @@ void			parse_pl(char *line, t_scena *scena)
 	// printf("|normal|z: %f\n|", scena.pl.normal.z);
 	// printf("|color: %d|", scena.pl.color);
 	// printf("\n");
-}

@@ -6,25 +6,26 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:07:22 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/07 15:52:38 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/09 13:59:10 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				free_rem(char *rem, int flag)
+int	free_rem(char *rem, int flag)
 {
 	if (rem)
 		free(rem);
 	return (flag);
 }
 
-int				this_while2(char **buf, int fd, char **remain, char **line)
+int	this_while2(char **buf, int fd, char **remain, char **line)
 {
-	int			bytes;
-	char		*tmp;
+	int		bytes;
+	char	*tmp;
 
-	while ((bytes = read(fd, *buf, BUFFER_SIZE)))
+	bytes = read(fd, *buf, BUFFER_SIZE);
+	while ((bytes))
 	{
 		if (bytes < 0)
 			return (-1);
@@ -40,7 +41,7 @@ int				this_while2(char **buf, int fd, char **remain, char **line)
 	return (0);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buf;
 	int			bytes;
@@ -50,11 +51,14 @@ int				get_next_line(int fd, char **line)
 	*line = NULL;
 	if (!line || BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
 		return (-1);
-	if ((bytes = chek_slesh_n(&remain, line)))
+	bytes = chek_slesh_n(&remain, line);
+	if ((bytes))
 		return (bytes);
-	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!(buf))
 		return (-1);
-	if ((j = this_while2(&buf, fd, &remain, line)))
+	j = this_while2(&buf, fd, &remain, line);
+	if ((j))
 		return (j);
 	if (!remain)
 		*line = ft_strdup("");

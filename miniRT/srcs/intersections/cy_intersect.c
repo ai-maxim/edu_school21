@@ -6,40 +6,56 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:26:02 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/23 15:03:36 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/14 19:37:53 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-double			cy_intersect(t_ray ray, t_objects *cy, double *t)
+t_close	cy_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2])
 {
+	t_vec	cam_cy;
+	t_cy	*cy;
+	t_close	cl;
 	double	a;
 	double	b;
 	double	c;
-	double	disc;
-//	double	t;
-	double	t1;
-	double	t2;
-	double	m;
-	double	m1;
-	t_vec	cam_cy;
+	double	discr;
+	double	t[2];
 
-	cam_cy = substract_vec(ray.direction, cy->origin);
-	normalize_vec(cy->direction);
-	a = dpv(ray.direction, ray.direction) - pow(dpv(ray.direction, cy->direction), 2);
-	b = 2 * (dpv(ray.direction, cam_cy) - dpv(ray.direction, cy->direction) * dpv(cam_cy, cy->direction));
-	c = dpv(cam_cy, cam_cy) - pow(dpv(cam_cy, cy->direction), 2) - (cy->radius * cy->radius);
-	disc = (b * b) - (4 * a * c);
-//	t = a / b;
-	t1 = (-b + sqrt(disc)) / (2 * a);
-	t2 = (-b - sqrt(disc)) / (2 * a);
-	if (t1 < t2 && t1 > 0)
-		return (t1);
-	if (t2 < t1 && t2 > 0)
-		return (t2);
-	m = dpv(ray.direction, cy->direction) * t1 + dpv(cam_cy, cy->direction);
-	if (m >= 0 && m <= cy->height)
-		return (t1);
-	return (-1);
+	cy = data;
+	cam_cy = substract_vec(*dir, cy->center);
+	normalize_vec(cy->dir);
+	a = dpv(*dir, *dir) - pow(dpv(*dir, cy->dir), 2);
+	b = 2 * (dpv(*dir, cam_cy) - dpv(*dir, cy->dir) * dpv(cam_cy, cy->dir));
+	c = dpv(cam_cy, cam_cy) - pow(dpv(cam_cy, cy->dir), 2) - (cy->diam * cy->diam);
+	discr = (b * b) - (4 * a * c);
+	if (discr < 0)
+	{
+		cl.t = INFINITY;
+		return (cl);
+	}
+	else if (discr * MAX_DIST > -1 && discr * MAX_DIST < 1)
+	{
+		t[0] = ((b * (-1))) / 2;
+		t[1] = MAX_DIST;
+		cl.t = t[0];
+		cl.obj_col = cy->color;
+	}
+	else
+	{
+		t[0] = (-b + sqrt(discr)) / (2 * a);
+		t[1] = (-b - sqrt(discr)) / (2 * a);
+		if (t[0] < t[1] && t[0] > 0)
+		{
+			cl.t = t[0];
+			cl.obj_col = cy->color;
+		}
+		else
+		{
+			cl.t = t[1];
+			cl.obj_col = cy->color;
+		}
+	}
+	return (cl);
 }

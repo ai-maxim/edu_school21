@@ -6,13 +6,13 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 13:20:28 by qdong             #+#    #+#             */
-/*   Updated: 2020/11/16 19:15:26 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/10 17:22:01 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				count_word(char const *s, char c)
+int	count_word(char const *s, char c)
 {
 	size_t		i;
 	size_t		size;
@@ -27,7 +27,7 @@ int				count_word(char const *s, char c)
 		{
 			res++;
 			++i;
-			continue;
+			continue ;
 		}
 		if (s[i] == c && s[i + 1] != c)
 			res++;
@@ -36,7 +36,7 @@ int				count_word(char const *s, char c)
 	return (res);
 }
 
-int				get_word(char const *s, int start, char c)
+int	get_word(char const *s, int start, char c)
 {
 	int			end;
 
@@ -50,7 +50,7 @@ int				get_word(char const *s, int start, char c)
 	return (end);
 }
 
-void			clear(char **del, size_t count)
+void	clear(char **del, size_t count)
 {
 	size_t		i;
 
@@ -61,15 +61,15 @@ void			clear(char **del, size_t count)
 	free(del);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char		**segment;
-	size_t		i;
-	int			start;
-	int			end;
+	char	**segment;
+	size_t	i;
+	int		start;
+	int		end;
 
-	if (!s ||
-		!(segment = (char **)malloc((count_word(s, c) + 1) * sizeof(char *))))
+	segment = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!s || !(segment))
 		return (NULL);
 	i = 0;
 	start = 0;
@@ -78,7 +78,8 @@ char			**ft_split(char const *s, char c)
 		if (s[start] != c)
 		{
 			end = get_word(s, start, c);
-			if (!(segment[i++] = ft_substr(s, start, end - start)))
+			segment[i] = ft_substr(s, start, end - start);
+			if (!(segment[i++]))
 				clear(segment, start);
 			start = end;
 			continue ;

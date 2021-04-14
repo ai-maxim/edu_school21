@@ -5,11 +5,10 @@ RUN apt-get update && apt-get upgrade -y
 #RUN aptitude install build-essential zip git
 
 #nginx
-RUN apt-get -y install wget
-RUN apt-get -y install nginx
-RUN touch /etc/nginx/sites-available/wordpress.conf
-RUN apt-get install mariadb-server mariadb-client -y
-RUN service nginx restart
+RUN apt-get -y install wget \ apt-get -y install nginx
+ touch /etc/nginx/sites-available/wordpress.conf
+ apt-get install mariadb-server mariadb-client -y
+ service nginx restart
 
 #Install php7.3
 RUN apt-get install php7.3 php7.3-fpm php7.3-mysql php7.3-common php7.3-xml php7.3-xmlrpc php7.3-curl php7.3-gd \

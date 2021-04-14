@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:04 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/24 18:55:48 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/14 16:36:02 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ typedef struct s_vplane
 
 }				t_vplane;
 
-t_vplane		*get_vian_plane(double wedht, double height, double fov);
-t_objs			*intersect(t_ray ray, t_list *objects, double min, double max);
-void			sp_intersect(t_ray ray, t_objs *sp, double *t);
-void 			pl_intersect(t_ray ray, t_objs *pl, double *t);
-double			cy_intersect(t_ray ray, t_objs *cy, double *t);
-double			sq_intersect(t_ray ray, t_objs *sq, double *t);
-void			tr_intersect(t_ray ray, t_ray direction, t_vec v0, t_vec v1, t_vec v2, double *t);
-void 			ray_tracing(void *mlx , void *window, t_scena *scena);
+t_vplane	*get_vian_plane(double wedht, double height, double fov);
+t_objs		*intersect(t_ray ray, t_list *objects, double min, double max);
+t_close		sp_intersect(t_vec *orig,t_vec *dir, void *data, double lim[2]);
+t_close		pl_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2]);
+t_close		cy_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2]);
+double		sq_intersect(t_ray ray, t_objs *sq, double *t);
+t_close		tr_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2]);
+void 		ray_tracing(void *mlx , void *window, t_scena *scena, t_data *imgs);
+t_vec		get_dir(t_scena *scena, int x, int y);
 
 #endif

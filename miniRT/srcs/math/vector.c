@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:02:15 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/23 17:00:09 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/09 12:40:22 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_vec		multip_vn(t_vec vec, double number)
 	return (result);
 }
 
-t_vec		addit_vec(t_vec vec1, t_vec vec2)
+t_vec	addit_vec(t_vec vec1, t_vec vec2)
 {
 	t_vec	result;
 
