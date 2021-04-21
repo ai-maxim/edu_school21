@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 20:34:12 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/09 13:37:17 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/18 18:33:11 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,4 @@ void	parse_l(char *line, t_scena *scena)
 	new_light->next = NULL;
 	parse_l0(tmp, new_light, scena);
 	parse_l1(line, new_light);
-
-	// printf("\n|light|x: %f|\n", new_light->l_dot.x);
-	// printf("|light|y: %f|\n", new_light->l_dot.y);
-	// printf("|light|z: %f|\n", new_light->l_dot.z);
-	// printf("|light|brightness: %f|\n", new_light->brightness);
-	// printf("|light|color: %d\n|", new_light->color.r);
-	// printf("|light|color: %d\n|", new_light->color.g);
-	// printf("|light|color: %d\n|", new_light->color.b);
-	// printf("\n");
 }

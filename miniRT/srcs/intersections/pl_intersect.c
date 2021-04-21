@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 16:02:11 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/14 19:34:47 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/18 14:27:43 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	invert_normal(t_vec *norm, t_vec p, t_vec *o)
 
 t_close	pl_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2])
 {
-	double	a;
-	double	b;
 	t_vec	cam_pl;
 	t_pl	*pl;
 	t_close	cl;
@@ -37,15 +35,13 @@ t_close	pl_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2])
 	init_zero(&cl);
 	pl->normal = normalize_vec(pl->normal);
 	cam_pl = substract_vec(*orig, pl->center);
-	a = dpv(cam_pl, pl->normal);
-	b = dpv(*dir, pl->normal);
-	if (b == 0)
+	if (dpv(*dir, pl->normal) == 0)
 		return (cl);
-	t = -1 * a / b;
+	t = -1 * dpv(cam_pl, pl->normal) / dpv(*dir, pl->normal);
 	if (t < lim[1] && t > lim[0])
 	{
 		cl.t = t;
-		if (lim[1] == MAX_DIST)
+		if (lim[1] == INFINITY)
 		{
 			cl.obj_col = pl->color;
 			cl.dot_inter = multip_vn(*dir, t);

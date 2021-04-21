@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 20:26:54 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/09 13:38:46 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/19 16:25:42 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,10 @@ void	parse_c(char *line, t_scena *scena)
 	t_camera	*new_cam;
 	t_camera	*tmp;
 
+	scena->cam_flag = 1;
 	new_cam = malloc(sizeof(t_camera));
 	new_cam->next = NULL;
 	new_cam->prev = NULL;
 	check_parse_c0(line, new_cam);
 	check_parse_c1(tmp, new_cam, scena);
-
-	// printf("\n|camera.orig|x: %f|\n", new_cam->orig.x);
-	// printf("|camcamera.originera|y: %f|\n", new_cam->orig.y);
-	// printf("|camera.orig|z: %f|\n", new_cam->orig.z);
-
-	// printf("\n|camera.dir|x: %f|\n", new_cam->dir.x);
-	// printf("|camera.dir|y: %f|\n", new_cam->dir.y);
-	// printf("|camera.dir|z: %f|\n", new_cam->dir.z);
-
-	// printf("|fov: %f|", new_cam->fov);
-	// printf("\n");
 }
-

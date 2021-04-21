@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 14:53:25 by qdong             #+#    #+#              #
-#    Updated: 2021/04/14 16:37:39 by qdong            ###   ########.fr        #
+#    Updated: 2021/04/20 20:28:59 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ DIR_HEADER	= ./includes/
 
 DIR_SRCS	= ./srcs/
 
-SRC			= 	utils/error_exit.c utils/strlen_arr.c utils/window.c\
-				utils/colors.c utils/color_intens.c utils/bmp.c\
+SRC			= 	utils/error_exit.c utils/window.c \
+				utils/colors.c utils/color_intens.c utils/bmp.c \
+				utils/cam_movie.c \
 				math/vector.c math/normal.c \
 				main.c \
 				libft/ft_strlen.c libft/ft_substr.c libft/ft_split.c \
@@ -34,6 +35,7 @@ SRC			= 	utils/error_exit.c utils/strlen_arr.c utils/window.c\
 				intersections/pl_intersect.c \
 				intersections/cy_intersect.c \
 				intersections/tr_intersect.c \
+				intersections/sq_intersect.c \
 
 SRCS		= $(addprefix $(DIR_SRCS), $(SRC))
 
@@ -45,7 +47,8 @@ LIMBLX 		= libmlx.dylib
 
 GCC			= gcc -g
 RM			= rm -f
-# CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -fsanitize=address -g
+#-Wall -Werror -Wextra
 
 %.o: %.c
 				$(GCC) $(CFLAGS) -I $(DIR_HEADER) -c $< -o $@
@@ -68,9 +71,3 @@ fclean:		clean
 re:				fclean all
 
 .PHONY:		all clean fclean re
-
-
-				# intersections/intersect.c \
-				# intersections/sq_intersect.c \
-
-

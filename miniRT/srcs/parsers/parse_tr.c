@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:26:49 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/14 16:40:23 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/21 12:16:01 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ void	parse_tr_0(t_objs	*tmp, t_objs *tr, t_scena *scena)
 		}
 		tmp->next = tr;
 	}
+}
+
+void	parse_tr1(t_objs *tr, t_tr *new_tr, t_pars_per p)
+{
+	// t_tr	*new_tr;
+
+	new_tr->color = get_color(p.arr4);
+	tr->data = new_tr;
+	tr->type = 't';
+	tr->inter_funk = &tr_intersect;
+	tr->next = NULL;
 }
 
 void	parse_tr(char *line, t_scena *scena)
@@ -58,10 +69,6 @@ void	parse_tr(char *line, t_scena *scena)
 	p.arr4 = ft_split(p.arr[3], ',');
 	if (!(p.arr4[0] && p.arr4[1] && p.arr4[2]) || p.arr4[3])
 		ft_exit("Error! No argument is color!\n");
-	new_tr->color = get_color(p.arr4);
-	tr->data = new_tr;
-	tr->type = 't';
-	tr->inter_funk = &tr_intersect;
-	tr->next = NULL;
+	parse_tr1(tr, new_tr, p);
 	parse_tr_0(tmp, tr, scena);
 }

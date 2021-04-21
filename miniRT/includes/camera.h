@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:55:57 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/02 13:37:49 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/20 15:01:56 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@ typedef struct		s_camera
 	struct s_camera	*next;
 	struct s_camera	*prev;
 }					t_camera;
-
-t_camera			*new_camera(t_vec origin, t_vec derection, double fov);
 
 #endif

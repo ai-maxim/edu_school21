@@ -6,14 +6,15 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:36 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/14 18:48:32 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/21 12:56:49 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENA_H
 # define SCENA_H
-# include "libft.h"
-# include "minirt.h"
+#include "libft.h"
+#include "minirt.h"
+#include "camera.h"
 
 typedef	struct	s_color
 {
@@ -77,6 +78,12 @@ typedef struct	s_sq
 	t_vec			normal;
 	double			side_size;
 	t_color			color;
+	t_vec			up;
+	t_vec			right;
+	t_vec			left;
+	t_vec			d;
+	t_vec			e;
+	double			len;
 }				t_sq;
 
 typedef struct	s_cy
@@ -86,6 +93,7 @@ typedef struct	s_cy
 	double			diam;
 	double			height;
 	t_color			color;
+	double			m[3];
 }				t_cy;
 
 typedef struct	s_tr
@@ -95,6 +103,15 @@ typedef struct	s_tr
 	t_vec			c3;
 	t_color			color;
 }				t_tr;
+
+typedef struct	s_matrix
+{
+	t_vec	right;
+	t_vec	forw;
+	t_vec	orig;
+	t_vec	up;
+
+}				t_matrix;
 
 typedef struct	s_perem
 {
@@ -133,13 +150,31 @@ typedef struct		s_scena
 {
 	t_camera		*cams;
 	t_light			*light;
-	int				widht;	// ширина окна
-	int				height;	//высота окна
+	int				widht;
+	int				height;
 	double			brightness; //яркость ambient light
 	t_color			color; // ambien light
 	t_objs			*objs;
+	int				ambient;
+	int				cam_flag;
 }				t_scena;
 
+typedef struct		s_arg
+{
+	t_vec	*orig;
+	t_vec	*dir;
+	void	*data;
+	double	lim0;
+	double	lim1;
+	double	a;
+	double	b;
+	double	c;
+	double	m;
+	t_vec	xyz;
+	t_vec	w;
+}					t_arg;
+
+void			check_line(char *line, t_scena *scena);
 t_vec			get_coordinate(char **str);
 t_color			get_color(char **str);
 void			pars_data(char *rt, t_scena *scena);
@@ -158,22 +193,28 @@ void			parse_l_color(t_light *new_light, char **array);
 
 void			parse_pl(char *line, t_scena *scena);
 void			parse_pl_0(t_objs	*tmp, t_objs *pl, t_scena *scena);
-void			parse_sp(char *line, t_scena *scena);
+
 void			parse_sp_0(t_objs *tmp, t_objs *sp, t_scena *scena);
+void			parse_sp1(t_objs *tmp, t_objs *sp, t_sp *new_sp, t_pars_per p);
+void			parse_sp(char *line, t_scena *scena);
 void			parse_sq(char *line, t_scena *scena);
+void			parse_sq_1(t_objs *tmp, t_objs *sq, t_sq *new_sq, t_pars_per p);
 void			parse_sq_0(t_objs	*tmp, t_objs *sq, t_scena *scena);
-void			parse_cy(char *line, t_scena *scena);
 void			parse_cy_0(t_objs	*tmp, t_objs *cy, t_scena *scena);
+void			parse_cy1(t_objs *tmp, t_objs *cy, t_cy *new_cy, t_pars_per	p);
+void			parse_cy(char *line, t_scena *scena);
+
 void			parse_tr(char *line, t_scena *scena);
 void			parse_tr_0(t_objs	*tmp, t_objs *tr, t_scena *scena);
 
-t_color		mix_col(t_color *c1, t_color *c2);
-t_color		color_scalar_ret(double n, t_color *c);
-t_color		col_sum(t_color *c1, t_color *c2);
-t_close		cl_inter(t_vec *orig, t_vec ray, t_scena *scena, double *lim);
-double		compute_i(t_close cl, t_vec *vec_d, t_scena *scena,t_vec *l_vec, t_light *lgt);
-void		init_zero(t_close *cl);
-void		invert_normal(t_vec *norm, t_vec p, t_vec *o);
-
+t_color			mix_col(t_color *c1, t_color *c2);
+t_color			color_scalar_ret(double n, t_color *c);
+t_color			col_sum(t_color *c1, t_color *c2);
+void			com_color_intens(t_close *cl, t_vec *vec_d, t_scena *scena);
+int				get_pixel_color(t_vec dir, t_scena *scena);
+t_close			cl_inter(t_vec *orig, t_vec ray, t_scena *scena, double *lim);
+double			blic_and_diffuz(t_close cl, t_vec *vec_d, t_scena *scena,t_vec *l_vec, t_light *lgt);
+void			init_zero(t_close *cl);
+void			invert_normal(t_vec *norm, t_vec p, t_vec *o);
 
 #endif

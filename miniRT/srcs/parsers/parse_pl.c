@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 13:36:13 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/11 18:24:40 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/19 17:40:44 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_color	get_color(char **str)
 	return (tmp);
 }
 
-void	parse_pl_0(t_objs	*tmp, t_objs *pl, t_scena *scena)
+void	parse_pl_0(t_objs *tmp, t_objs *pl, t_scena *scena)
 {
 	if (!tmp)
 		scena->objs = pl;
@@ -52,6 +52,17 @@ void	parse_pl_0(t_objs	*tmp, t_objs *pl, t_scena *scena)
 		}
 		tmp->next = pl;
 	}
+}
+
+void	parse_pl1(t_objs *tmp, t_objs *pl, t_pl *new_pl, t_pars_per p)
+{
+	new_pl->normal = get_coordinate(p.arr2);
+	p.arr3 = ft_split(p.arr[2], ',');
+	new_pl->color = get_color(p.arr3);
+	pl->data = new_pl;
+	pl->type = 'p';
+	pl->inter_funk = &pl_intersect;
+	pl->next = NULL;
 }
 
 void	parse_pl(char *line, t_scena *scena)
@@ -74,21 +85,6 @@ void	parse_pl(char *line, t_scena *scena)
 	p.arr2 = ft_split(p.arr[1], ',');
 	if (!(p.arr2[0] && p.arr2[1] && p.arr2[2]) || p.arr2[3])
 		ft_exit("Error! With Square keys!\n");
-	new_pl->normal = get_coordinate(p.arr2);
-	p.arr3 = ft_split(p.arr[2], ',');
-	new_pl->color = get_color(p.arr3);
-	pl->data = new_pl;
-	pl->type = 'p';
-	pl->inter_funk = &pl_intersect;
-	pl->next = NULL;
+	parse_pl1(tmp, pl, new_pl, p);
 	parse_pl_0(tmp, pl, scena);
 }
-
-	// printf("|plane|center|x: %f\n|", scena.pl.center.x);
-	// printf("|plane|center|y: %f\n|", scena.pl.center.y);
-	// printf("|plane|center|z: %f\n|", scena.pl.center.z);
-	// printf("|normal|x: %f\n|", scena.pl.normal.x);
-	// printf("|normal|y: %f\n|", scena.pl.normal.y);
-	// printf("|normal|z: %f\n|", scena.pl.normal.z);
-	// printf("|color: %d|", scena.pl.color);
-	// printf("\n");

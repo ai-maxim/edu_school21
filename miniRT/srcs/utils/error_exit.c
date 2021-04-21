@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:58 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/09 12:42:47 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/20 20:31:53 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	ft_perror(char *s)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	if (s)
 	{
 		while (s[i])
@@ -29,8 +30,7 @@ int	ft_perror(char *s)
 void	error_exit(int code)
 {
 	if (code == -1)
-		// write(1, "ERROR: memory allocation error", 30);
-		write(1, "ERROR: invalid file\n", 21);
+		write(1, "ERROR: invalid imput\n", 21);
 	exit(code);
 }
 
@@ -39,7 +39,7 @@ char	error_color(char **array)
 	return (ft_perror(ERR5));
 }
 
-void		ft_exit(char *s)
+void	ft_exit(char *s)
 {
 	printf("%s\n", s);
 	exit(1);

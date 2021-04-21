@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 13:44:30 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/09 13:38:11 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/19 16:19:35 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	parse_a(char *line, t_scena *scena)
 	char	**array;
 	char	**tmp;
 
+	scena->ambient = 1;
 	array = ft_split(line + 1, ' ');
 	if (line[0] != ' ')
 		ft_exit("Error! With whitespace Ambient Lightning keys!\n");
@@ -38,10 +39,4 @@ void	parse_a(char *line, t_scena *scena)
 		error_color(&array[1]);
 	free(tmp);
 	free(array);
-
-	// printf("|ambient lightning: %f|\n", scena->brightness);
-	// printf("|color r: %d|\n", scena->color.r);
-	// printf("|color g: %d|\n", scena->color.g);
-	// printf("|color b: %d|\n", scena->color.b);
-	// printf("\n");
 }

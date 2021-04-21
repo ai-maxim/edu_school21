@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:48:26 by qdong             #+#    #+#             */
-/*   Updated: 2021/03/24 21:36:20 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/20 20:29:08 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int					ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
-int					ft_strlen_arr(const char *str);
 double				ft_atof(char *str);
 
 # ifndef BUFFER_SIZE

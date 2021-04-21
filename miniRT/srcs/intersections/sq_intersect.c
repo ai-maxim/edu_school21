@@ -14,26 +14,37 @@
 
 t_close	sq_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2])
 {
-	double	b;
-	double	c;
-	double	t[2];
-	t_vec	cam_sq;
+	t_vec	cam_pl;
 	t_sq	*sq;
+	t_tr	tr;
 	t_close	cl;
-	t_vec	d;
 
 	sq = data;
-	cam_sq = substract_vec(*dir, sq->center);
-	b = dpv(cam_sq, sq->origin);
-	c = dpv(sq->center, *orig);
-	if (c == 0 || (b < 0 && c < 0) || (b > 0 && c))
-		return (0);
-	t[0] = (-b / c);
-	d = substract_vec(addit_vec(multip_vn(*dir, t[0]), ray.origin), sq->v1);
-	t[1] = sq->side_size / 2;
-	if (fabs(d.x) < t[1] || fabs(d.y) < t[1] || fabs(d.z) < t[1])
-		return (1);
-	if (t[0] < 0)
-		return (0);
-	return (t[0]);
+	sq->normal = normalize_vec(sq->normal);
+	if (!(sq->normal.x == 0 && (sq->normal.y == 1 || sq->normal.y == -1)
+			&& sq->normal.z == 0))
+		sq->up = new_vector(0, 1, 0);
+	else if (sq->normal.x == 0 && sq->normal.y == 1 && sq->normal.z == 0)
+		sq->up = new_vector(0, 0, -1);
+	else if (sq->normal.x == 0 && sq->normal.y == -1 && sq->normal.z == 0)
+		sq->up = new_vector(0, 0, 1);
+	sq->right = cross_product(sq->up, sq->normal);
+	sq->left = cross_product(sq->right, sq->normal);
+	tr.c1 = multip_vn(sq->right, sq->len);
+	tr.c1 = addit_vec(tr.c1, sq->center);
+	tr.c2 = multip_vn(sq->right, (-1) * sq->len);
+	tr.c2 = addit_vec(tr.c2, sq->center);
+	sq->d = multip_vn(sq->left, sq->len);
+	sq->d = addit_vec(sq->d, sq->center);
+	sq->e = multip_vn(sq->left, (-1) * sq->len);
+	sq->e = addit_vec(sq->e, sq->center);
+	tr.c3 = sq->d;
+	tr.color = sq->color;
+	cl = tr_intersect(orig, dir, &tr, lim);
+	if (cl.t == INFINITY)
+	{
+		tr.c3 = sq->e;
+		cl = tr_intersect(orig, dir, &tr, lim);
+	}
+	return (cl);
 }

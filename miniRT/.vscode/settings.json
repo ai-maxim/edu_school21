@@ -19,6 +19,10 @@
 		"locale": "cpp",
 		"vector": "cpp",
 		"algorithm": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"unistd.h": "c",
+		"stdlib.h": "c",
+		"cmath": "c",
+		"complex": "c"
 	}
 }
