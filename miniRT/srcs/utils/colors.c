@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 19:01:48 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:53:08 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 16:04:57 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	colors(t_color *col)
 	return (color);
 }
 
-int	get_pixel_color(t_vec dir, t_scena *scena)
+int	get_pixel_color(t_vec *dir, t_scena *scena)
 {
 	t_close	cl;
 	double	lim[2];
@@ -67,6 +67,6 @@ int	get_pixel_color(t_vec dir, t_scena *scena)
 	cl = cl_inter(&scena->cams->orig, dir, scena, lim);
 	if (cl.t == INFINITY)
 		return (0);
-	com_color_intens(&cl, &dir, scena);
+	com_color_intens(&cl, dir, scena);
 	return (colors(&cl.obj_col));
 }

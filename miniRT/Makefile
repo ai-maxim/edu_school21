@@ -6,7 +6,7 @@
 #    By: qdong <qdong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 14:53:25 by qdong             #+#    #+#              #
-#    Updated: 2021/04/20 20:28:59 by qdong            ###   ########.fr        #
+#    Updated: 2021/04/22 20:13:25 by qdong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ DIR_SRCS	= ./srcs/
 
 SRC			= 	utils/error_exit.c utils/window.c \
 				utils/colors.c utils/color_intens.c utils/bmp.c \
-				utils/cam_movie.c \
+				utils/cam_movie.c utils/check_normalaz.c utils/free_scene.c \
+				utils/coordinate_color.c \
 				math/vector.c math/normal.c \
 				main.c \
 				libft/ft_strlen.c libft/ft_substr.c libft/ft_split.c \
@@ -33,7 +34,7 @@ SRC			= 	utils/error_exit.c utils/window.c \
 				ray_tracing/traice_ray.c \
 				intersections/sp_intersect.c  \
 				intersections/pl_intersect.c \
-				intersections/cy_intersect.c \
+				intersections/cy_intersect.c intersections/cy_intersect2.c \
 				intersections/tr_intersect.c \
 				intersections/sq_intersect.c \
 
@@ -47,8 +48,8 @@ LIMBLX 		= libmlx.dylib
 
 GCC			= gcc -g
 RM			= rm -f
-CFLAGS		= -fsanitize=address -g
-#-Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra
+NORM		= -R CheckForbiddenSourceHeader
 
 %.o: %.c
 				$(GCC) $(CFLAGS) -I $(DIR_HEADER) -c $< -o $@
@@ -69,5 +70,8 @@ fclean:		clean
 				$(RM) $(NAME)
 
 re:				fclean all
+
+norme:
+			norminette $(NORM) $(SRCS)*.c $(DIR_HEADER)*.h
 
 .PHONY:		all clean fclean re

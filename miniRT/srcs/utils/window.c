@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 16:37:09 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:28:12 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 18:58:48 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	close_window(t_params *vars)
 {
-	mlx_destroy_window(vars->mlx, vars->win);
+	free_all(vars);
 	exit (0);
 	return (0);
 }
@@ -23,7 +23,7 @@ int	close_window(t_params *vars)
 void	camera_go(t_params *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->img->img);
-	ray_tracing(vars->mlx, vars->win, vars->scena, vars->img);
+	ray_tracing(vars->mlx, vars->scena, vars->img);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 }
 

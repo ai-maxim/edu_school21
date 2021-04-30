@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:44:46 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/19 17:53:28 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 20:17:14 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	parse_sq_0(t_objs	*tmp, t_objs *sq, t_scena *scena)
 	}
 }
 
-void	parse_sq_1(t_objs *tmp, t_objs *sq, t_sq *new_sq, t_pars_per p)
+void	parse_sq_1(t_objs *sq, t_sq *new_sq, t_pars_per p)
 {
 	new_sq->normal = get_coordinate(p.arr2);
 	new_sq->side_size = ft_atoi(p.arr[2]);
@@ -39,6 +39,20 @@ void	parse_sq_1(t_objs *tmp, t_objs *sq, t_sq *new_sq, t_pars_per p)
 	sq->type = 'q';
 	sq->inter_funk = &sq_intersect;
 	sq->next = NULL;
+	free_array(p.arr3);
+}
+
+void	parse_if_sq(t_pars_per *p, t_sq *new_sq)
+{
+	if (!(p->arr[0] && p->arr[1] && p->arr[2] && p->arr[3]) || p->arr[4])
+		ft_exit("Error! No argument is sq!\n");
+	p->arr1 = ft_split(p->arr[0], ',');
+	if (!(p->arr1[0] && p->arr1[1] && p->arr1[2]) || p->arr1[3])
+		ft_exit("Error! No argument is sq[center]!\n");
+	new_sq->center = get_coordinate(p->arr1);
+	p->arr2 = ft_split(p->arr[1], ',');
+	if (!(p->arr2[0] && p->arr2[1] && p->arr2[2]) || p->arr2[3])
+		ft_exit("Error! With Square[normal] keys!\n");
 }
 
 void	parse_sq(char *line, t_scena *scena)
@@ -50,19 +64,19 @@ void	parse_sq(char *line, t_scena *scena)
 
 	tmp = scena->objs;
 	new_sq = malloc(sizeof(t_sq));
+	if (!new_sq)
+		ft_exit("ERROR: malloc");
 	sq = malloc(sizeof(t_objs));
+	if (!sq)
+		ft_exit("ERROR: malloc");
 	p.arr = ft_split(line + 1, ' ');
 	if (line[0] != ' ')
 		ft_exit("Error! With whitespace Square keys!\n");
-	if (!(p.arr[0] && p.arr[1] && p.arr[2] && p.arr[3]) || p.arr[4])
-		ft_exit("Error! No argument is sq!\n");
-	p.arr1 = ft_split(p.arr[0], ',');
-	if (!(p.arr1[0] && p.arr1[1] && p.arr1[2]) || p.arr1[3])
-		ft_exit("Error! No argument is sq[center]!\n");
-	new_sq->center = get_coordinate(p.arr1);
-	p.arr2 = ft_split(p.arr[1], ',');
-	if (!(p.arr2[0] && p.arr2[1] && p.arr2[2]) || p.arr2[3])
-		ft_exit("Error! With Square[normal] keys!\n");
-	parse_sq_1(tmp, sq, new_sq, p);
+	parse_if_sq(&p, new_sq);
+	check_normalaz(p.arr2[0], p.arr2[1], p.arr2[2]);
+	parse_sq_1(sq, new_sq, p);
 	parse_sq_0(tmp, sq, scena);
+	free_array(p.arr);
+	free_array(p.arr1);
+	free_array(p.arr2);
 }

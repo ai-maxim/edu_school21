@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 13:44:30 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/19 16:19:35 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 19:09:08 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	parse_a(char *line, t_scena *scena)
 		|| (scena->color.g < 0 || scena->color.g > 255)
 		|| (scena->color.b < 0 || scena->color.b > 255))
 		error_color(&array[1]);
-	free(tmp);
-	free(array);
+	free_array(array);
+	free_array(tmp);
 }

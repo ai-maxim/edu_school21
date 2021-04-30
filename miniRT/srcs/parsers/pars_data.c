@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 20:26:59 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/19 16:14:21 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 18:48:58 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	check_line(char *line, t_scena *scena)
 		parse_cy(line + 2, scena);
 	else if (line[0] == 't' && line[1] == 'r')
 		parse_tr(line + 2, scena);
-	else
-		free(line);
+	free(line);
 }
 
 void	pars_data(char *rt, t_scena *scena)

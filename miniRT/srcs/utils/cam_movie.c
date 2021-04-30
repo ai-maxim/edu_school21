@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 20:50:17 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:36:28 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 17:33:34 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_matrix	look_at(t_camera *cams)
 	t_matrix	matrix;
 	t_vec		up_tmp;
 
+	up_tmp = new_vector(0, 1, 0);
 	matrix.forw = cams->dir;
 	matrix.orig = cams->orig;
 	matrix.forw = normalize_vec(matrix.forw);

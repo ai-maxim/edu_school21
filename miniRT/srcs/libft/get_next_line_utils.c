@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 17:41:18 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/10 17:45:41 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 18:23:21 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	chek_slesh_n(char **remain, char **line)
 	return (0);
 }
 
-void	strjoin_0(char *s1, char *s2, char *s3)
+void	strjoin_0(char *s2, char *s3)
 {
 	int		i;
 	int		j;
@@ -78,7 +78,6 @@ char	*ft_strjoin_m(char *s1, char *s2)
 {
 	char	*s3;
 	int		i;
-	int		j;
 
 	if (!s1 && !s2)
 		return (NULL);
@@ -94,6 +93,6 @@ char	*ft_strjoin_m(char *s1, char *s2)
 			i++;
 		}
 	}
-	strjoin_0(s1, s2, &s3[i]);
+	strjoin_0(s2, &s3[i]);
 	return (s3);
 }

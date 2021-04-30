@@ -14,7 +14,6 @@
 
 t_close	sq_intersect(t_vec *orig, t_vec *dir, void *data, double lim[2])
 {
-	t_vec	cam_pl;
 	t_sq	*sq;
 	t_tr	tr;
 	t_close	cl;

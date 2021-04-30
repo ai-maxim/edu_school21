@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 19:17:47 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:35:05 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:53:49 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ double	blic_intens(t_close cl, t_vec *l_vec, t_vec *vec_d, double light_i)
 	return (0);
 }
 
-double	blic_and_diffuz(t_close cl, t_vec *vec_d, t_scena *scena,
-		t_vec *l_vec, t_light *lgt)
+double	blic_and_diffuz(t_close cl, t_vec *vec_d, t_scena *scena, t_light *lgt)
 {
 	double	i;
 	t_close	tl;
@@ -57,10 +56,10 @@ double	blic_and_diffuz(t_close cl, t_vec *vec_d, t_scena *scena,
 	i = 0;
 	lim[0] = 0.0001;
 	lim[1] = 1;
-	tl = cl_inter(&cl.dot_inter, *l_vec, scena, lim);
+	tl = cl_inter(&cl.dot_inter, lgt->l_vec, scena, lim);
 	if (tl.t != 1)
 		return (i);
-	i += diffuse_intens(cl, l_vec, lgt->brightness);
-	i += blic_intens(cl, l_vec, vec_d, lgt->brightness);
+	i += diffuse_intens(cl, lgt->l_vec, lgt->brightness);
+	i += blic_intens(cl, lgt->l_vec, vec_d, lgt->brightness);
 	return (i);
 }

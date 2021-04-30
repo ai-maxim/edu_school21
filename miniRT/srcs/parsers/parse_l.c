@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 20:34:12 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/18 18:33:11 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 20:02:08 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	parse_l_color(t_light *new_light, char **array)
 		|| (new_light->color.g < 0 || new_light->color.g > 255)
 		|| (new_light->color.b < 0 || new_light->color.b > 255))
 		ft_exit("Error! With colors!\n");
+	free_array(cordinate1);
 }
 
 void	parse_l1(char *line, t_light *new_light)
@@ -65,6 +66,8 @@ void	parse_l1(char *line, t_light *new_light)
 	if (new_light->brightness <= 0 || new_light->brightness > 1)
 		ft_exit("Error! With L-brightness!\n");
 	parse_l_color(new_light, array);
+	free_array(array);
+	free_array(cordinate);
 }
 
 void	parse_l(char *line, t_scena *scena)
@@ -72,7 +75,10 @@ void	parse_l(char *line, t_scena *scena)
 	t_light		*tmp;
 	t_light		*new_light;
 
-	new_light = malloc(sizeof(t_camera));
+	tmp = NULL;
+	new_light = (t_light *)malloc(sizeof(t_light));
+	if (!new_light)
+		ft_exit("ERROR: malloc");
 	new_light->next = NULL;
 	parse_l0(tmp, new_light, scena);
 	parse_l1(line, new_light);

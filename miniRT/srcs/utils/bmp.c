@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 12:15:12 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:38:05 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/21 19:38:34 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_color_bmp(t_data *ap, int x, int y)
 	char	*dst;
 
 	dst = ap->addr + (y * ap->line_length + x * (ap->bits_per_pixel / 8));
-	return (*(unsigned int*)dst);
+	return (*(unsigned int *)dst);
 }
 
 int	check_type_screen(char *str)
@@ -42,8 +42,8 @@ int	check_type_screen(char *str)
 
 static void	init_head(unsigned char *h_arr, int size, t_data *p, int temp)
 {
-	h_arr[0] = (unsigned char)'B';
-	h_arr[1] = (unsigned char)'M';
+	h_arr[0] = (unsigned char) 'B';
+	h_arr[1] = (unsigned char) 'M';
 	h_arr[2] = (unsigned char)(size % 256);
 	h_arr[3] = (unsigned char)(size / 256 % 256);
 	h_arr[4] = (unsigned char)(size / 256 / 256 % 256);

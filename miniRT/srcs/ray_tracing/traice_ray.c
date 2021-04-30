@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:39 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/21 13:31:54 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 19:36:04 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_vec	get_dir(t_scena *scena, int x, int y)
 	return (dir);
 }
 
-t_close	cl_inter(t_vec *orig, t_vec ray, t_scena *scena, double *lim)
+t_close	cl_inter(t_vec *orig, t_vec *ray, t_scena *scena, double *lim)
 {
 	t_close	closest;
 	t_objs	*tmp;
@@ -36,7 +36,7 @@ t_close	cl_inter(t_vec *orig, t_vec ray, t_scena *scena, double *lim)
 	closest.t = lim[1];
 	while (tmp)
 	{
-		cl = tmp->inter_funk(orig, &ray, tmp->data, lim);
+		cl = tmp->inter_funk(orig, ray, tmp->data, lim);
 		if (cl.t < closest.t)
 			closest = cl;
 		tmp = tmp->next;
@@ -46,7 +46,7 @@ t_close	cl_inter(t_vec *orig, t_vec ray, t_scena *scena, double *lim)
 
 void	com_color_intens(t_close *cl, t_vec *vec_d, t_scena *scena)
 {
-	float		i;
+	double		i;
 	t_light		*tmp;
 	t_vec		l_vec;
 	t_color		color;
@@ -59,7 +59,8 @@ void	com_color_intens(t_close *cl, t_vec *vec_d, t_scena *scena)
 	{
 		i = 0;
 		l_vec = substract_vec(tmp->l_dot, cl->dot_inter);
-			i = blic_and_diffuz(*cl, vec_d, scena, &l_vec, tmp);
+		tmp->l_vec = &l_vec;
+		i = blic_and_diffuz(*cl, vec_d, scena, tmp);
 		if (i)
 		{
 			light_color = color_scalar_ret(i, &tmp->color);
@@ -79,16 +80,16 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	ray_tracing(void *mlx , void *window, t_scena *scena, t_data *imgs)
+void	ray_tracing(void *mlx, t_scena *scena, t_data *imgs)
 {
 	int		color;
-	int 	x;
-	int 	y;
+	int		x;
+	int		y;
 	t_vec	dir;
 
 	imgs->img = mlx_new_image(mlx, scena->widht, scena->height);
-	imgs->addr =
-	mlx_get_data_addr(imgs->img, &imgs->bits_per_pixel, &imgs->line_length, &imgs->endian);
+	imgs->addr = mlx_get_data_addr(imgs->img, &imgs->bits_per_pixel,
+			&imgs->line_length, &imgs->endian);
 	x = (scena->widht * 0.5) * (-1);
 	imgs->win_x = scena->widht;
 	imgs->win_y = scena->height;
@@ -98,13 +99,10 @@ void	ray_tracing(void *mlx , void *window, t_scena *scena, t_data *imgs)
 		while (y > scena->height * 0.5 * (-1))
 		{
 			dir = get_dir(scena, x, y);
-			// if (x == 0 && y == 5)
 			cam_go(&dir, scena->cams);
-			// dir	= normalize_vec(dir);
-			// if (x == -5 && y == -87)
-				color = get_pixel_color(dir, scena);
+			color = get_pixel_color(&dir, scena);
 			my_mlx_pixel_put(imgs, (int)(scena->widht * 0.5 + x),
-									(int)(scena->height * 0.5 - y), color);
+				(int)(scena->height * 0.5 - y), color);
 			y--;
 		}
 		x++;

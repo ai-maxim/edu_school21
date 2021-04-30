@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 20:26:54 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/19 16:25:42 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/25 20:20:56 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ void	check_parse_c1(t_camera	*tmp, t_camera *new_cam, t_scena *scena)
 		new_cam->prev = tmp;
 		tmp->next = new_cam;
 	}
+}
+
+void	free_s(char **ar, char **n1, char **n2)
+{
+	free_array(ar);
+	free_array(n1);
+	free_array(n2);
 }
 
 void	check_parse_c0(char *line, t_camera	*new_cam)
@@ -56,6 +63,7 @@ void	check_parse_c0(char *line, t_camera	*new_cam)
 	new_cam->fov = ft_atof(array[2]);
 	if (new_cam->fov > 360 || new_cam->fov < 0)
 		ft_exit("Error! With fov!\n");
+	free_s(array, num, num1);
 }
 
 void	parse_c(char *line, t_scena *scena)
@@ -63,8 +71,11 @@ void	parse_c(char *line, t_scena *scena)
 	t_camera	*new_cam;
 	t_camera	*tmp;
 
+	tmp = NULL;
 	scena->cam_flag = 1;
 	new_cam = malloc(sizeof(t_camera));
+	if (!new_cam)
+		ft_exit("ERROR: malloc");
 	new_cam->next = NULL;
 	new_cam->prev = NULL;
 	check_parse_c0(line, new_cam);

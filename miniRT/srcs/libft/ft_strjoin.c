@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 19:00:10 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/09 13:48:21 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/21 19:19:20 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if ((s3 = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
+	s3 = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!(s3))
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')

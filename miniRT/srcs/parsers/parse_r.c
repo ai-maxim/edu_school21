@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:35:26 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/18 18:34:37 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 17:44:30 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	parse_r(char *line, t_scena *scena)
 	scena->height = ft_atoi(array[1]);
 	if (scena->widht <= 0 || scena->height <= 0)
 		ft_exit("Error! With widht or height!\n");
+	free_array(array);
 }

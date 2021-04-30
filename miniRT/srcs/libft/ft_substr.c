@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:56:25 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/10 17:51:11 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 18:22:10 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	substr_0(char const *str, unsigned int start,
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	char			*str_mem;
-	unsigned int	i;
 
 	if (!str)
 		return (0);

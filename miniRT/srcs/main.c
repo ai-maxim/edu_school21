@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:06 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/21 12:28:05 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 18:34:30 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,37 @@ void	init_zero(t_close *cl)
 	cl->obj_col.b = 0;
 }
 
-void	check_screen_size(t_scena *scena, void *mlx)
+void	free_all(t_params *p)
+{
+	free_scene(p->scena);
+	if (p->img && p->mlx)
+		mlx_destroy_image(p->mlx, p->img->img);
+	if (p->win && p->mlx)
+		mlx_destroy_window(p->mlx, p->win);
+	if (p->mlx)
+		free(p->mlx);
+}
+
+void	check_screen_size(t_scena *scena, t_params *params)
 {
 	int	w;
 	int	h;
 
-	mlx_get_screen_size(mlx, &w, &h);
+	mlx_get_screen_size(params->mlx, &w, &h);
 	if (scena->widht > w)
 		scena->widht = w;
 	if (scena->height > h)
 		scena->height = h;
 	if (scena->ambient != 1)
+	{
+		free_all(params);
 		ft_exit("Error! Where A key?\n");
+	}
 	if (scena->cam_flag != 1)
+	{
+		free_all(params);
 		ft_exit("Error! Where cam?\n");
+	}
 }
 
 void	put_img_to_win(t_params *params, t_data *imgs, t_scena *scena)
@@ -58,10 +75,11 @@ int	main(int argc, char **argv)
 	ft_bzero(&imgs, sizeof(t_data));
 	ft_bzero(&params, sizeof(t_params));
 	pars_data(argv[1], &scena);
-	check_screen_size(&scena, &params.mlx);
+	check_screen_size(&scena, &params);
 	params.mlx = mlx_init();
-	params.win = mlx_new_window(params.mlx, scena.widht, scena.height, "miniRT");
-	ray_tracing(params.mlx, params.win, &scena, &imgs);
+	params.win = mlx_new_window(params.mlx, scena.widht,
+			scena.height, "miniRT");
+	ray_tracing(params.mlx, &scena, &imgs);
 	params.img = &imgs;
 	if (argc == 3 && check_type_screen(argv[2]))
 		make_screen(&imgs);

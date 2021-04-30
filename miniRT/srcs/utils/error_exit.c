@@ -6,7 +6,7 @@
 /*   By: qdong <qdong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:57:58 by qdong             #+#    #+#             */
-/*   Updated: 2021/04/20 20:31:53 by qdong            ###   ########.fr       */
+/*   Updated: 2021/04/22 19:52:08 by qdong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	error_exit(int code)
 
 char	error_color(char **array)
 {
+	(void)array;
 	return (ft_perror(ERR5));
 }
 
@@ -49,6 +50,7 @@ char	error_invalid_file(int argc, char **argv)
 {
 	int	tmp;
 
+	(void)argc;
 	tmp = ft_strlen(argv[1]);
 	if (tmp < 4)
 		return (ft_perror(ERR4));
