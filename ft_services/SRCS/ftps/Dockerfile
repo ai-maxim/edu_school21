@@ -1,27 +1,33 @@
-From alpine:3.12
+FROM alpine:3.12
 
-EXPOSE 80 443
+COPY vsftpd.conf telegraf.conf setup.sh ./
 
-RUN apt-get update && apt-get upgrade -y && apt-get -y install wget vim nginx openssl \
-	rm -rf ./etc/nginx/sites-enabled/default \
-	apt-get install php7.3 php7.3-fpm php7.3-mysql php7.3-common php7.3-xml php7.3-xmlrpc \
-	php7.3-curl php7.3-gd php7.3-imagick php7.3-cli php7.3-dev php7.3-imap php7.3-json -y \
-	apt-get install mariadb-server -y \
-    wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz \
-    tar -xzvf phpMyAdmin-5.0.2-all-languages.tar.gz && rm -rf phpMyAdmin-5.0.2-all-languages.tar.gz \
-    mv phpMyAdmin-5.0.2-all-languages phpmyadmin \
-	wget https://wordpress.org/latest.tar.gz && tar -xzvf latest.tar.gz && rm -rf latest.tar.gz \
-	openssl req -x509 -nodes -newkey rsa:2048 -days 365 -keyout /etc/ssl/private/localhost.key -out /etc/ssl/certs/localhost.crt -subj "/C=US/ST=California/L=LosAngeles/O=mycompany/OU=443/CN=nginx" \
-	chown -R www-data:www-data /var/www/* \
-	chmod -R 755 /var/www/html/*
+# Install vsftpd and dependencies
+RUN apk update && \
+	apk add --no-cache vsftpd openssl
 
-COPY	./srcs/default ./etc/nginx/sites-enabled
-ADD		./srcs/database.sql /tmp/
-WORKDIR	/var/www/html
-COPY	./srcs/config.inc.php /var/www/html/phpmyadmin
-COPY	./srcs/wp-config.php /var/www/html/wordpress
-COPY	./srcs/init.sh ./
-CMD		bash init.sh
+# Create user
+RUN mkdir -p /etc/ftps/ftp_admin && \
+	adduser --home=/etc/ftps/ftp_admin -D ftp_admin && \
+	echo "ftp_admin:01010" | chpasswd
+
+# Setup vsftpd
+RUN mv vsftpd.conf /etc/vsftpd/ && \
+	echo "ftp_admin" >> /etc/vsftpd/vsftpd.userlist
+
+# Setup SSL
+RUN openssl req -new -newkey rsa:2048 -nodes -days 365 -x509 \
+	-subj "/C=FR/ST=IDF/L=Paris/O=42/OU=Federation/CN=localhost" \
+	-keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+
+# Install telegraf
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ telegraf && \
+	mkdir -p /etc/telegraf && \
+	mv telegraf.conf /etc/telegraf/
+
+EXPOSE 20 21 21009-21011
+
+CMD ./setup.sh
 
 # docker build -t nginx .
 # docker run -it --rm -p 80:80 -p 443:443 nginx
