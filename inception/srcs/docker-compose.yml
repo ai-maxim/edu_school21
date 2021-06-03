@@ -1,0 +1,60 @@
+version: "3.7"
+volumes:
+    wp:
+        driver: local
+        name: wordpress
+        driver_opts:
+            type: none
+            o: bind
+            device: /home/mix/data/wp
+    db:
+        driver: local
+        name: mariaDB
+        driver_opts:
+            type: none
+            o: bind
+            device: /home/mix/data/db
+
+networks:
+    new_network:
+        name: new_network
+        driver: bridge
+
+services:
+    mysql:
+        env_file: .env
+        volumes:
+          - db:/var/lib/mysql
+        restart: always
+        build: MariaDB/
+        user: mix
+        networks:
+          - new_network
+        container_name: mariadb
+    nginx:
+        restart: always
+        volumes:
+          - wp:/var/www/html
+        depends_on:
+          - wp
+        ports:
+          - "443:443"
+        env_file: .env
+        restart: always
+        build: nginx
+        user: mix
+        networks:
+          - new_network
+        container_name: nginx
+    wp:
+        env_file: .env
+        depends_on:
+          - mysql
+        volumes:
+          - wp:/var/www/html
+        restart: always
+        build: WordPress
+        user: mix
+        networks:
+          - new_network
+        container_name: wordpress
