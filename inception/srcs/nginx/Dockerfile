@@ -1,3 +1,4 @@
+
 From debian:buster
 
 EXPOSE 443
@@ -7,14 +8,15 @@ LABEL maintainer="inception - qdong@student.21-school.ru"
 RUN apt-get update && apt-get -y install nginx
 RUN apt-get install openssl
 
-# RUN mkdir /etc/ssl
-
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY site.conf /etc/nginx/sites-available/
 COPY index.html /var/www/html/
+COPY ./start.sh /
 
-RUN chown -R www-data /etc/ssl/*
-RUN chown -R www-data /var/www/*
+RUN chmod +x start.sh
+RUN chmod 777 /etc/ssl/*
+RUN chmod 777 /var/www/*
 
-COPY ./run.sh /opt/run.sh
+#SHELL ["/bin/bash"]
+#CMD ["ln", "-s", "/etc/nginx/sites-available/site.conf", "/etc/nginx/sites-enabled/site.conf"]
 
-CMD ["/opt/run.sh"]
+ENTRYPOINT /start.sh
