@@ -3,7 +3,7 @@ define( 'DB_NAME', 'wordpress' );
 /** MySQL database username */
 define( 'DB_USER', 'mix' );
 /** MySQL database password */
-define( 'DB_PASSWORD', 'ma3030' );
+define( 'DB_PASSWORD', 'aq12' );
 /** MySQL hostname */
 define( 'DB_HOST', 'mariaDB' );
 /** Database Charset to use in creating database tables. */

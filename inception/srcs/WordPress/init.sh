@@ -1,1 +1,1 @@
-service php7.3-fpm start
+service php-fpm7.3 start

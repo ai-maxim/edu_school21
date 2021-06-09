@@ -13,10 +13,7 @@ COPY index.html /var/www/html/
 COPY ./start.sh /
 
 RUN chmod +x start.sh
-RUN chmod 777 /etc/ssl/*
-RUN chmod 777 /var/www/*
-
-#SHELL ["/bin/bash"]
-#CMD ["ln", "-s", "/etc/nginx/sites-available/site.conf", "/etc/nginx/sites-enabled/site.conf"]
+RUN chmod -R 755 /etc/ssl/*
+RUN chmod -R 755 /var/www/*
 
 ENTRYPOINT /start.sh
