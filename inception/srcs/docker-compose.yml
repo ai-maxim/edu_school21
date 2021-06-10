@@ -13,12 +13,6 @@ volumes:
             type: none
             o: bind
             device: /home/mix/data/db
-    openssl:
-        driver: local
-        driver_opts:
-            type: none
-            o: bind
-            device: /home/mix/edu_school21/inception
 
 networks:
     new_network:
@@ -37,7 +31,6 @@ services:
     nginx:
         volumes:
           - wp:/var/www/html
-          - openssl:/openssl/
         depends_on:
           - wp
         ports:

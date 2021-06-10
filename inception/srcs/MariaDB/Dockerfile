@@ -10,5 +10,5 @@ COPY init.sh	/var/www/
 RUN chmod +x /var/www/init.sh
 RUN /var/www/init.sh
 
-ENTRYPOINT ["/usr/bin/mysqld_safe"]
+ENTRYPOINT ["/usr/bin/mysqld_safe", "--bind-address=0.0.0.0"]
 

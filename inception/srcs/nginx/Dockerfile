@@ -9,11 +9,15 @@ RUN apt-get update && apt-get -y install nginx
 RUN apt-get install openssl
 
 COPY site.conf /etc/nginx/sites-available/
-COPY index.html /var/www/html/
+#COPY index.html /var/www/html/
 COPY ./start.sh /
+COPY ./openssl ./openssl
 
+RUN chmod 777 ./openssl/localhost.crt
+RUN chmod 777 ./openssl/localhost.key
 RUN chmod +x start.sh
 RUN chmod -R 755 /etc/ssl/*
-RUN chmod -R 755 /var/www/*
+RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 755 /var/www/html
 
 ENTRYPOINT /start.sh
