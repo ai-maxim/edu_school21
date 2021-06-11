@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install mariadb-server mariadb-client -y
 
 COPY init.sh	/var/www/
+COPY damp_db.sql /var/www/
 
 RUN chmod +x /var/www/init.sh
 RUN /var/www/init.sh

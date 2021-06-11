@@ -13,8 +13,8 @@ COPY site.conf /etc/nginx/sites-available/
 COPY ./start.sh /
 COPY ./openssl ./openssl
 
-RUN chmod 777 ./openssl/localhost.crt
-RUN chmod 777 ./openssl/localhost.key
+RUN chmod 444 ./openssl/localhost.crt
+RUN chmod 444 ./openssl/localhost.key
 RUN chmod +x start.sh
 RUN chmod -R 755 /etc/ssl/*
 RUN chown -R www-data:www-data /var/www/html

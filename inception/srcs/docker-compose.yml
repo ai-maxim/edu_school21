@@ -20,9 +20,17 @@ networks:
 
 services:
     mysql:
-        env_file: .env
         volumes:
           - db:/var/lib/mysql
+        environment:
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+          WORDPRESS_WEBSITE_URL_WITHOUT_HTTP: ${WORDPRESS_WEBSITE_URL_WITHOUT_HTTP}
+          WORDPRESS_ADMIN_USER: ${WORDPRESS_ADMIN_USER}
+          WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
+          WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_PASSWORD}
         restart: always
         build: MariaDB/
         networks:
@@ -34,7 +42,7 @@ services:
         depends_on:
           - wp
         ports:
-          - "443:443"
+             - "443:443"
         env_file: .env
         restart: always
         build: nginx
@@ -42,11 +50,15 @@ services:
           - new_network
         container_name: nginx
     wp:
-        env_file: .env
         depends_on:
           - mysql
         volumes:
           - wp:/var/www/html
+        environment:
+          WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+          WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+          WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+          WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
         restart: always
         build: WordPress
         networks:
