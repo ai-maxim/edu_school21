@@ -1,7 +1,9 @@
 FROM debian:buster
-EXPOSE 9000 
+EXPOSE 9000
 
 RUN apt-get update
+
+ARG WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
 
 RUN mkdir -p /var/run/php/
 
