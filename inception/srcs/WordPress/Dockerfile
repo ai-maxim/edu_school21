@@ -1,5 +1,5 @@
 FROM debian:buster
-EXPOSE 9000 3306
+EXPOSE 9000 
 
 RUN apt-get update
 

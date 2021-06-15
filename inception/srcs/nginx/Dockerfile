@@ -1,7 +1,7 @@
 
 From debian:buster
 
-EXPOSE 443
+#EXPOSE 443
 
 LABEL maintainer="inception - qdong@student.21-school.ru"
 

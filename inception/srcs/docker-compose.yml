@@ -19,7 +19,7 @@ networks:
         driver: bridge
 
 services:
-    mysql:
+    mariadb:
         volumes:
           - db:/var/lib/mysql
         environment:
@@ -33,6 +33,7 @@ services:
           WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_PASSWORD}
         restart: always
         build: MariaDB/
+        image: mariadb 
         networks:
           - new_network
         container_name: mariadb
@@ -40,18 +41,19 @@ services:
         volumes:
           - wp:/var/www/html
         depends_on:
-          - wp
+          - wordpress
         ports:
              - "443:443"
         env_file: .env
         restart: always
         build: nginx
+        image: nginx
         networks:
           - new_network
         container_name: nginx
-    wp:
+    wordpress:
         depends_on:
-          - mysql
+          - mariadb
         volumes:
           - wp:/var/www/html
         environment:
@@ -61,6 +63,7 @@ services:
           WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
         restart: always
         build: WordPress
+        image: wordpress
         networks:
           - new_network
         container_name: wordpress
